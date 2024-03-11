@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "AddNewBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form style="margin-left:350px;margin-top:0px" class="form-group" method="post">
+
+    @Html.Label("Blog Başlığı", new { @style = "margin-left:225px" })
+    @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Kategorisi", new { @style = "margin-left:225px" })
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Tarihi", new { @style = "margin-left:225px" })
+    @Html.TextBoxFor(x => x.BlogDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Yazarı", new { @style = "margin-left:225px" })
+    @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.values2, new {@class ="form-control"})
+    <br />
+    @Html.Label("Blog İçeriği", new { @style = "margin-left:225px" })
+    @Html.TextAreaFor(x => x.BlogContent, 3, 5, new { @class = "form-control" })
+    <br />
+    <div style="display:flex">
+        @Html.Label("Ana Resim")
+        @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+        <br />
+        @Html.Label("Resim 2")
+        @Html.TextBoxFor(x => x.BlogImage2, new { @class = "form-control" })
+        <br />
+    </div>
+    @*///Blog Resimleri///*@
+    <div style="display:flex">
+        @Html.Label("Resim 3")
+        @Html.TextBoxFor(x => x.BlogImage3, new { @class = "form-control" })
+        <br />
+        @Html.Label("Resim 4")
+        @Html.TextBoxFor(x => x.BlogImage4, new { @class = "form-control" })
+        <br />
+    </div>
+    <button style="margin-left:225px" class="btn btn-primary">Kaydet</button>
+</form>

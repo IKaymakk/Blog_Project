@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+<style>
+    body{
+    overflow-x: hidden;
+}
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="~/miniblog/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/miniblog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/miniblog/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/miniblog/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/miniblog/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/miniblog/css/aos.css">
+    <link rel="stylesheet" href="~/miniblog/css/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar" role="banner" style="position:fixed">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <div class="col-12 search-form-wrap js-search-form">
+                        <form method="get" action="#">
+                            <input type="text" id="s" class="form-control" placeholder="Search...">
+                            <button class="search-btn" type="submit"><span class="icon-search"></span></button>
+                        </form>
+                    </div>
+
+                    <div class="col-4 site-logo">
+                        <a href="/Blog/Index" class="text-black h2 mb-0">Ana Sayfa</a>
+                    </div>
+
+                    <div class="col-8 text-right">
+                        <nav class="site-navigation" role="navigation">
+                            <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
+                                <li><a href="/Blog/BlogByCategory/1/">Yazılım - Teknoloji</a></li>
+                                <li><a href="/Blog/BlogByCategory/4">Politika</a></li>
+                                <li><a href="/Blog/BlogByCategory/5">Eğitim</a></li>
+                                <li><a href="/Blog/BlogByCategory/3">Seyahat</a></li>
+                                <li><a href="/Blog/BlogByCategory/6">Borsa</a></li>
+                                <li><a href="/Blog/BlogByCategory/2">Spor</a></li>
+                                <li><a href="/Contact/SendMessage/">İletişim</a></li>
+                                <li><a href="/About/Index/">Hakkımızda</a></li>
+                                <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
+                            </ul>
+                        </nav>
+                        <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <div class="site-footer">
+            <div class="container">
+                <div style="margin-left:50px" class="row mb-5">
+                    <div style="margin-left:400px" class="col-md-4">
+                        <a href="/About/Index">
+                            <h3 class="footer-heading mb-4">Hakkımızda</h3>
+                        </a>
+                        <p>Amacımız, okuyucularımıza ve izleyicilerimize, güncel ve doğru bilgi sunarak onların haberdar olmasını sağlamak. Yenilikçi ve yaratıcı yaklaşımımızla, sadece güncel haberleri değil, aynı zamanda ilgi çekici vloglar ve özel röportajlar da sunuyoruz.</p>
+                    </div>
+                    <div style="margin-left:50px" class="col-md-3 ml-auto">
+                        <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
+                        <h3 class="footer-heading mb-4">Kategoriler</h3>
+                        <ul class="list-unstyled float-left">
+                            <li><a href="/Blog/BlogByCategory/1">Yazılım - Teknoloji</a></li>
+                            <li><a href="/Blog/BlogByCategory/4">Politika</a></li>
+                            <li><a href="/Blog/BlogByCategory/5">Eğitim</a></li>
+                            <li><a href="/Blog/BlogByCategory/3">Seyahat</a></li>
+                            <li><a href="/Blog/BlogByCategory/2">Spor</a></li>
+                            <li><a href="/Blog/BlogByCategory/6">Sanat</a></li>
+                        </ul>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div style="margin-top:-285px;margin-left:80px">
+                            <h3 class="footer-heading mb-4">Sosyal Medya</h3>
+                            <p>
+                                <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
+                                <a href="#"><span class="icon-twitter p-2"></span></a>
+                                <a href="#"><span class="icon-instagram p-2"></span></a>
+                                <ul class="list-unstyled float-left mr-5">
+                                    <li><a href="/Contact/SendMessage/">İletişim</a></li>
+                                    <li><a href="#">Admin</a></li>
+                                    <li><a href="/Author/Login">Yazar Girişi</a></li>
+
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <script src="~/miniblog/js/jquery-3.3.1.min.js"></script>
+        <script src="~/miniblog/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="~/miniblog/js/jquery-ui.js"></script>
+        <script src="~/miniblog/js/popper.min.js"></script>
+        <script src="~/miniblog/js/bootstrap.min.js"></script>
+        <script src="~/miniblog/js/owl.carousel.min.js"></script>
+        <script src="~/miniblog/js/jquery.stellar.min.js"></script>
+        <script src="~/miniblog/js/jquery.countdown.min.js"></script>
+        <script src="~/miniblog/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/miniblog/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/miniblog/js/aos.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+
+</body>
+</html>

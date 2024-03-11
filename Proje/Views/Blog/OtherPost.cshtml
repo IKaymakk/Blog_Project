@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Category>
+@{ string color = "";}
+
+<div class="site-section bg-light">
+    <div class="container">
+        <h3>Daha Fazla Yazı</h3>
+
+        <div class="row align-items-stretch retro-layout">
+            <div class="col-md-5 order-md-2">
+                <a href="/Blog/BlogDetails/@ViewBag.bid1" class="hentry img-1 h-100 gradient" style="background-image: url('@ViewBag.p2');">
+                    <span class="@color"></span>
+                    <div class="text">
+                        <h2>@ViewBag.p1</h2>
+                        <span>@(((DateTime)@ViewBag.p3).ToString("dd MMM yyyy"))</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-7">
+
+                <a href="/Blog/BlogDetails/@ViewBag.bid2" class="hentry img-2 v-height mb30 gradient" style="background-image: url('@ViewBag.p5');">
+                    <span class="@color"></span>
+                    <div class="text text-sm">
+                        <h2>@ViewBag.p4</h2>
+                        <span>@(((DateTime)@ViewBag.p6).ToString("dd MMM yyyy"))</span>
+                    </div>
+                </a>
+
+                <div class="two-col d-block d-md-flex">
+                    <a href="/Blog/BlogDetails/@ViewBag.bid4" class="hentry v-height img-2 gradient" style="background-image: url('@ViewBag.p8');">
+                        <span class="@color"></span>
+                        <div class="text text-sm">
+                            <h2>@ViewBag.p7</h2>
+                            <span>@(((DateTime)@ViewBag.p9).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                    <a href="/Blog/BlogDetails/@ViewBag.bid3" class="hentry v-height img-2 ml-auto gradient" style="background-image: url('@ViewBag.p12');">
+                        <span class="@color"></span>
+                        <div class="text text-sm">
+                            <h2>@ViewBag.p11</h2>
+                            <span>@(((DateTime)@ViewBag.p13).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,59 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Blog>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row align-items-stretch retro-layout-2">
+                <div class="col-md-4">
+                    <a href="/Blog/BlogDetails/@ViewBag.bid1" class="h-entry mb-30 v-height gradient" style="background-image: url('@ViewBag.p2');">
+
+                        <div class="text">
+                            <h2>@ViewBag.p1</h2>
+                            <span class="date">@(((DateTime)@ViewBag.p3).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                    <a href="/Blog/BlogDetails/@ViewBag.bid2" class="h-entry v-height gradient" style="background-image: url('@ViewBag.p5');">
+
+                        <div class="text">
+                            <h2>@ViewBag.p4</h2>
+                            <span class="date">@(((DateTime)@ViewBag.p6).ToString("dd MMM yyyy"))"</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/Blog/BlogDetails/@ViewBag.bid4" class="h-entry img-5 h-100 gradient" style="background-image: url('@ViewBag.p8');">
+
+                        <div class="text">
+                            <div class="post-categories mb-3">
+                                <span class="post-category bg-danger">GÜNDEM</span>
+                            </div>
+                            <h2>@ViewBag.p7</h2>
+                            <span class="date">@(((DateTime)@ViewBag.p9).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/Blog/BlogDetails/@ViewBag.bid3" class="h-entry mb-30 v-height gradient" style="background-image: url('@ViewBag.p12');">
+
+                        <div class="text">
+                            <h2>@ViewBag.p11</h2>
+                            <span class="date">@(((DateTime)@ViewBag.p13).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                    <a href="/Blog/BlogDetails/@ViewBag.bid5" class="h-entry v-height gradient" style="background-image: url('@ViewBag.p15');">
+
+                        <div class="text">
+                            <h2>@ViewBag.p14</h2>
+                            <span class="date">@(((DateTime)@ViewBag.p16).ToString("dd MMM yyyy"))</span>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+

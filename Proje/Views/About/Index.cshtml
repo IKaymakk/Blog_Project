@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EntityLayer.Concrete.About>
+<br />
+<br />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@foreach (var resim in Model)
+{
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@resim.AboutImage1');">
+        <div class="container">
+            <div class="row same-height justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="post-entry text-center">
+                        <h1 class="">Hakkımızda</h1>
+
+                        <p class="lead mb-4 text-white"> Amacımız, okuyucularımıza ve izleyicilerimize, güncel ve doğru bilgi sunarak onların haberdar olmasını sağlamak. Yenilikçi ve yaratıcı yaklaşımımızla, sadece güncel haberleri değil, aynı zamanda ilgi çekici bloglar ve özel röportajlar da sunuyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                @foreach (var rsm in Model)
+                {
+                <img src="@rsm.AboutImage2" style="width:630px;margin-top:40px" alt="Image" class="">
+                }
+            </div>
+            <div class="col-md-5 mr-auto order-md-1">
+                @foreach (var x in Model)
+                {
+                    <h2>@x.AboutContent1</h2>
+                }
+                <p>Sitemizde, farklı kategorilerde yazılar bulabilirsiniz. Teknoloji, sağlık, eğitim, spor, kültür-sanat, ekonomi, siyaset gibi alanlarda günlük haberlerin yanı sıra, özgün ve bilgilendirici blog yazıları da okuyabilirsiniz. Ayrıca, sitemizde yer alan yazarlarımızın kişisel görüş ve deneyimlerini paylaştığı köşe yazıları da ilginizi çekebilir.</p>
+                <ul class="ul-check list-unstyled success">
+                    <li>Güncel ve ilgi çekici konuları takip edenler için bir kaynak olmayı amaçlarız.</li>
+                    <li>Farklı alanlardan uzman yazarların görüş ve deneyimlerini paylaştığı bir platformuz.</li>
+                    <li>Okuyucuların da yorum ve katkılarını bekleyen bir topluluğuz.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Action("MeetTheTeam", "About")
+
+

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+
+@{
+    ViewBag.Title = "GetCommentByBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Yorumlar</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+
+                    <!-- Timelime example  -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- The time line -->
+                            <div class="timeline">
+                                @foreach (var x in Model)
+                                {
+                                <!-- timeline time label -->
+                                <div class="time-label">
+                                    <span class="bg-gradient-primary">@(((DateTime)x.CommentDate).ToString("dd MMM yyyy"))</span>
+                                </div>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                            <div>
+
+                                <i style="margin-top:25px" class="fas fa-comment-slash bg-red "></i>
+
+                                <div class="timeline-item">
+
+                                    <span class="time"><a style="margin-right:7px">@x.Mail</a><i class="fas fa-envelope"></i></span>
+                                    <h3 class="timeline-header"><a href="#">@x.UserName</a></h3>
+
+                                    <div class="timeline-body">
+                                        @x.Message
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</body>
+</html>
+

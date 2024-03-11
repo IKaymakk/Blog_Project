@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@*<style>
+        .site-cover {
+            background-size: cover;
+            background-position: top center;
+            height: 670px;
+            position: relative;
+        }
+    </style>*@
+@{ string color = "";}
+@foreach (var y in Model)
+{
+
+
+    if (y.Category.CategoryName == "Seyahat")
+    {
+        color = "post-category text-white bg-success mb-3";
+    }
+    if (y.Category.CategoryName == "Spor")
+    {
+        color = "post-category text-white bg-primary mb-3";
+    }
+    if (y.Category.CategoryName == "Politika")
+    {
+        color = "post-category text-white bg-danger mb-3";
+    }
+    if (y.Category.CategoryName == "Eğitim")
+    {
+        color = "post-category text-white bg-warning mb-3";
+    }
+    if (y.Category.CategoryName == "Yazılım - Teknoloji")
+    {
+        color = "post-category text-white bg-info mb-3";
+    }
+    if (y.Category.CategoryName == "Borsa")
+    {
+        color = "post-category text-white bg-primary mb-3";
+    }
+}
+
+@foreach (var x in Model)
+{
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@x.BlogImage');">
+        <div class="container">
+            <div class="row same-height justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="post-entry text-center">
+                        <span class="@color">@x.Category.CategoryName</span>
+                        <h1 class="mb-4"><a>@x.BlogTitle</a></h1>
+                        <div class="post-meta align-items-center text-center">
+                            <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="@x.Author.AuthorImg" alt="Image" class="img-fluid"></figure>
+                            <span class="d-inline-block mt-1">@x.Author.AuthorName</span>
+                            <span>&nbsp;-&nbsp;@x.BlogDate.ToString("d MMM yyy")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

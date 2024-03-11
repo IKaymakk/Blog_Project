@@ -1,0 +1,87 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@model IEnumerable<EntityLayer.Concrete.Blog>
+@{ string color = "";}
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 style="text-align:center">Tüm Yazılar</h2>
+            </div>
+        </div>
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("AllBlogs", new { page }))
+
+        <div class="row">
+
+            @foreach (var x in Model)
+            {
+
+
+                if (x.Category.CategoryName == "Seyahat")
+                {
+                    color = "post-category text-white bg-success mb-3";
+                }
+                if (x.Category.CategoryName == "Spor")
+                {
+                    color = "post-category text-white bg-primary mb-3";
+                }
+                if (x.Category.CategoryName == "Politika")
+                {
+                    color = "post-category text-white bg-danger mb-3";
+                }
+                if (x.Category.CategoryName == "Eğitim")
+                {
+                    color = "post-category text-white bg-warning mb-3";
+                }
+                if (x.Category.CategoryName == "Yazılım - Teknoloji")
+                {
+                    color = "post-category text-white bg-info mb-3";
+                }
+                <div class="col-lg-4 mb-4">
+                    <div class="entry2">
+                        <a href="/Blog/BlogDetails/@x.BlogID"><img style="height:220px" src="@x.BlogImage" alt="Image" class="img-fluid rounded"></a>
+                        <div class="excerpt">
+                            <span class="@color">@x.Category.CategoryName</span>
+
+                            <h2><a href="/Blog/BlogDetails/@x.BlogID">@x.BlogTitle</a></h2>
+                            <div class="post-meta align-items-center text-left clearfix">
+                                <figure class="author-figure mb-0 mr-3 float-left"><img style="width:30px;height:30px" src="@x.Author.AuthorImg" alt="Image" class="img-fluid"></figure>
+                                <span class="d-inline-block mt-1">By <a href="#">@x.Author.AuthorName</a></span>
+                                <span>&nbsp;-&nbsp; @(((DateTime)x.BlogDate).ToString("dd MMM yyyy")) </span>
+                            </div>
+
+                            <p>
+                                @if (@x.BlogContent.Length > 150)
+                                {
+                                    @x.BlogContent.Substring(0, 150);
+                                    <a>...</a> }
+                                else
+                                {
+                                    @x.BlogContent;
+                                }
+
+                            </p>
+                            <p><a href="/Blog/BlogDetails/@x.BlogID">Devamını Oku</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        @*<div class="row text-center pt-5 border-top">
+            <div class="col-md-12">
+                <div class="custom-pagination">
+                    <span>1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <span>...</span>
+                    <a href="#">15</a>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("AllBlogs", new { page }));

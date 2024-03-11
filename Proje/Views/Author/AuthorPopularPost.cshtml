@@ -1,0 +1,30 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+
+<div class="sidebar-box">
+    <h3 class="heading">Yazarın Paylaştıkları</h3>
+    <div class="post-entry-sidebar">
+        <ul>
+            @foreach (var x in Model)
+            {
+                <li>
+                    <a href="/Blog/BlogDetails/@x.BlogID">
+                        <img src="@x.BlogImage" alt="Image placeholder" class="mr-4">
+                        <div class="text">
+                            <a href="/Blog/BlogDetails/@x.BlogID">
+                                <h5>@x.BlogTitle</h5>
+                            </a>
+                            <div class="post-meta">
+                                <span class="mr-2">@x.BlogDate.ToString("dd MMM yyy")</span>
+                            </div>
+                        </div>
+                    </a>
+                   
+                </li>
+            }
+            </ul>
+    </div>
+</div>
+

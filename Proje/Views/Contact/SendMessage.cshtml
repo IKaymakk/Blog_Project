@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="site-cover site-cover-sm same-height overlay single-page" style="height:750px;background-image: url('/miniblog/images/eduardo-velazco-guart-nukqi6l_5du-unsplash.jpg'); ">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <br />
+                    <h1 class="">Bize Ulaşın</h1>
+                    <p class="lead mb-4 text-white">Görüş, öneri, talepleriniz, problemleriniz veya diğer bütün durumlar için bize ulaşın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 mb-5">
+
+                <form method="post" class="p-5 bg-white">
+
+                    <div class="row form-group">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label class="text-black"for="fname">Adınız</label>
+                            <input type="text" id="fname"  name="ContactName" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black" for="lname">Soyadınız</label>
+                            <input type="text" id="lname" name="ContactSurname" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="email">Mail Adresiniz</label>
+                            <input type="email" id="email" name="ContactMail" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="subject">Konu</label>
+                            <input type="text" id="subject" name="ContactSubject" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="text-black" for="message">Mesajınız</label>
+                            <textarea name="ContactMessage" id="message" cols="30" rows="7" class="form-control" placeholder="..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Gönder" class="btn btn-primary py-2 px-4 text-white">
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="col-md-5">
+
+                <div class="p-4 mb-3 bg-white">
+                    <p class="mb-0 font-weight-bold">Ofisimiz</p>
+                    <p class="mb-4">İstanbul - Esenler, Havaalanı Mahallesi, Atışalanı, Taşocağı</p>
+
+                    <p class="mb-0 font-weight-bold">Telefon Numaramız</p>
+                    <p class="mb-4"><a href="#">+90 0505 018 55 86</a></p>
+
+                    <p class="mb-0 font-weight-bold">Mail Adresimiz</p>
+                    <p class="mb-0"><a href="#">ibrahimkaymak@outlook.com</a></p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
