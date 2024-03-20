@@ -3,35 +3,55 @@
     ViewBag.Title = "AdminBlogList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-    <br>
-    <h3 style="margin-left:570px;color:black">Bloglar</h3>
-    <table style="background-color: #343a40; height: 2px; border: 4px double black; margin-left: 15px; margin-right: 15px " class="table table-hover">
+<br>
+<h3 style="margin-left:570px;color:black">Bloglar</h3>
+
+<table style="background-color: #343a40; height: 2px; border: 4px double black; margin-left: 15px; margin-right: 15px " class="table table-hover">
+
+    <tr>
+        <th style="color:white">ID</th>
+        <th style="color:white">Adı</th>
+        <th style="color:white">Kategori</th>
+        <th style="color:white">Yazarı</th>
+        <th style="color:white">Tarih</th>
+        <th style="color:white">Güncelle</th>
+        <th style="text-align:center;color:white">Sil</th>
+        @*<th>Detaylar</th>*@
+        <th style="color:white">Yorumlar</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
         <tr>
-            <th style="color:white">ID</th>
-            <th style="color:white">Adı</th>
-            <th style="color:white">Kategori</th>
-            <th style="color:white">Yazarı</th>
-            <th style="color:white">Tarih</th>
-            <th style="color:white">Güncelle</th>
-            <th style="text-align:center;color:white">Sil</th>
-            @*<th>Detaylar</th>*@
-            <th style="color:white">Yorumlar</th>
+            <td><a style="color:lightgray">@x.BlogID</a></td>
+            <td><a style="color:lightgray" href="/Blog/BlogDetails/@x.BlogID"> @x.BlogTitle</a> </td>
+            <td><a style="color:lightgray" href="/Blog/BlogByCategory/@x.CategoryID">@x.Category.CategoryName</a></td>
+            <td><a style="color:lightgray">@x.Author.AuthorName</a></td>
+            <td><a style="color:lightgray">@x.BlogDate.ToShortDateString()</a></td>
+            <td style="width:1%">
+                <a style="width:50px;margin-left:6px;height:31px" class="btn btn-success" href="/Blog/UpdateBlog/@x.BlogID">
+                    <i class="fas fa-folder">
+                    </i>
+                </a>
+            </td>
+            <td style="width:1%">
+                <a style="width:50px;margin-left:6px;height:31px" class="btn btn-danger" href="/Blog/DeleteBlog/@x.BlogID">
+                    <i style="margin-top:-5px" class="fas fa-trash">
+
+                    </i>
+                </a>
+            </td>
+            @*<td style="width:1%"><a style="width:50px;margin-left:6px;height:20px" class="btn btn-warning" href="/Blog/BlogDetails/@x.BlogID"></a></td>*@
+            <td style="width:1%">
+                <a style="width:50px;margin-left:10px;height:31px" class="btn btn-info" href="/Blog/GetCommentByBlog/@x.BlogID">
+                    <i class="fas fa-comment">
+
+                    </i>
+                </a>
+            </td>
         </tr>
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td><a style="color:lightgray">@x.BlogID</a></td>
-                <td><a style="color:lightgray"  href="/Blog/BlogDetails/@x.BlogID"> @x.BlogTitle</a> </td>
-                <td><a style="color:lightgray" href="/Blog/BlogByCategory/@x.CategoryID">@x.Category.CategoryName</a></td>
-                <td><a style="color:lightgray">@x.Author.AuthorName</a></td>
-                <td><a style="color:lightgray">@x.BlogDate.ToShortDateString()</a></td>
-                <td style="width:1%"><a style="width:50px;margin-left:6px;height:20px" class="btn btn-success" href="/Blog/UpdateBlog/@x.BlogID"></a></td>
-                <td style="width:1%"><a style="width:50px;margin-left:6px;height:20px" class="btn btn-danger" href="/Blog/DeleteBlog/@x.BlogID"></a></td>
-                @*<td style="width:1%"><a style="width:50px;margin-left:6px;height:20px" class="btn btn-warning" href="/Blog/BlogDetails/@x.BlogID"></a></td>*@
-                <td style="width:1%"><a style="width:50px;margin-left:10px;height:20px" class="btn btn-info" href="/Blog/GetCommentByBlog/@x.BlogID"></a></td>
-            </tr>
-        }
-    </table>
-    <a style="height:38px;margin-left:17px;margin-top:7px;" href="/Blog/AddNewBlog/" class="btn btn-primary">Yeni Blog Girişi</a>
+    }
+</table>
+<a style="height:38px;margin-left:17px;margin-top:7px;" href="/Blog/AddNewBlog/" class="btn btn-primary">Yeni Blog Girişi</a>
 
 

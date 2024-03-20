@@ -154,6 +154,11 @@ namespace Proje.Controllers
             var bloglist = bm.GetAll();
             return View(bloglist);
         }
+        public ActionResult AdminBlogList2()
+        {
+            var bloglist = bm.GetAll();
+            return View(bloglist);
+        }
         [HttpGet]
         public ActionResult AddNewBlog()
         {
@@ -216,7 +221,7 @@ namespace Proje.Controllers
             bm.UpdateBlog(p);
             return RedirectToAction("AdminBlogList");
         }
-        public ActionResult GetCommentByBlog (int id) 
+        public ActionResult GetCommentByBlog(int id)
         {
             CommentManager cm = new CommentManager();
             var commentlist = cm.CommentByBlog(id);

@@ -2467,6 +2467,7 @@
     <Content Include="Views\Author\AuthorEdit.cshtml" />
     <Content Include="Views\Comment\AdminCommentListFalse.cshtml" />
     <Content Include="Views\Category\AdminCategoryList.cshtml" />
+    <Content Include="Views\Blog\AdminBlogList2.cshtml" />
     <None Include="Views\Comment\AdminCommentListTrue.cshtml" />
   </ItemGroup>
   <ItemGroup>

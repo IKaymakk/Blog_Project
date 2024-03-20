@@ -22,7 +22,8 @@ namespace Proje.Controllers
         }
         public ActionResult AdminCategoryList()
         {
-            return View();
+            var ctlist = cm.GetAll();
+            return View(ctlist);
         }
     }
 }

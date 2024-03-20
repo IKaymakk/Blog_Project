@@ -1,0 +1,178 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewBag.Title = "AdminBlogList2";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+
+
+<body class="hold-transition sidebar-mini">
+
+    @{string color = "";}
+
+
+
+    <!-- Main content -->
+
+    <section style="width:100%" class="content">
+
+        <!-- Default box -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3 class="card-title">Blog Listesi</h3>
+
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+
+                        <i class="fas fa-minus"></i>
+
+                    </button>
+
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+
+                        <i class="fas fa-times"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="card-body p-0">
+
+                <table class="table table-striped projects">
+
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;text-align:center">
+                                ID
+                            </th>
+                            <th style="width: 25%">
+                                Blog Başlığı
+                            </th>
+                            @*<th style="text-align:center" >
+                                    Yazar
+                                </th>*@
+                            <th>
+                                Kapak Resmi
+                            </th>
+                            <th style="text-align: center; width: 15%">
+                                Beğeni Oranı
+                            </th>
+                            <th style="text-align:center" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="text-align:center">
+                                Düzenleme
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Category.CategoryName == "Seyahat")
+                            {
+                                color = "badge badge-success";
+                            }
+                            if (x.Category.CategoryName == "Spor")
+                            {
+                                color = "badge badge-primary";
+                            }
+                            if (x.Category.CategoryName == "Politika")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            if (x.Category.CategoryName == "Eğitim")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            if (x.Category.CategoryName == "Yazılım - Teknoloji")
+                            {
+                                color = "badge badge-info";
+                            }
+                            if (x.Category.CategoryName == "Borsa")
+                            {
+                                color = "badge badge-dark";
+                            }
+                            <tr >
+                                <td style="text-align:center">
+                                    @x.BlogID
+                                </td>
+                                <td style="height:100px;">
+                                    <a>
+                                        @x.BlogTitle
+                                    </a>
+                                    <br />
+                                    <small style=""> @x.Author.AuthorName </small>
+
+                                </td>
+
+                                <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" style="width:80px;height:50px;border-radius:16px" src="@x.BlogImage">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                <td class="project_progress">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
+                                        </div>
+                                    </div>
+                                    <small>
+                                        57% Complete
+                                    </small>
+                                </td>
+                                <td class="project-state">
+                                    <span class="@color">@x.Category.CategoryName</span>
+                                </td>
+                                <td style="text-align:center" class="project-actions">
+                                    <a class="btn btn-primary btn-sm" href="/Blog/GetCommentByBlog/@x.BlogID">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        Yorumlar
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Blog/UpdateBlog/@x.BlogID">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="/Blog/DeleteBlog/@x.BlogID">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- /.card-body -->
+
+        </div>
+
+        <!-- /.card -->
+
+    </section>
+
+</body>
+
+</html>
+
