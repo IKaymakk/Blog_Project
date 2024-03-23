@@ -20,5 +20,6 @@ namespace EntityLayer.Concrete
         [StringLength(100)]
         public string ContactSubject { get; set; }
         public string ContactMessage { get; set; }
+        public DateTime MessageDate { get; set; }
     }
 }

@@ -23,5 +23,10 @@ namespace BusinessLayer.Concrete
                 return rc.Insert(c);
             }
         }
+        public List<Contact> GetAll()
+        {
+            return rc.List();
+        }
+
     }
 }

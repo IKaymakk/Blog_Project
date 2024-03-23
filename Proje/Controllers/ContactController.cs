@@ -29,5 +29,10 @@ namespace Proje.Controllers
             cm.BLContactAdd(p);
             return View();
         }
+        public ActionResult SendBox()
+        {
+            var messagelist = cm.GetAll();
+            return View(messagelist);  
+        }
     }
 }
