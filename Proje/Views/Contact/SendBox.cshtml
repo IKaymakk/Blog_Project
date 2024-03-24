@@ -72,11 +72,11 @@
 
                             <li class="nav-item active">
 
-                                <a href="#" class="nav-link">
+                                <a href="/Contact/SendBox" class="nav-link">
 
                                     <i class="fas fa-inbox"></i> Gelen Kutusu
 
-                                    <span class="badge bg-primary float-right">12</span>
+                                    <span class="badge bg-primary float-right">3</span>
 
                                 </a>
 
@@ -87,6 +87,7 @@
                                 <a href="#" class="nav-link">
 
                                     <i class="far fa-envelope"></i> Gönderilenler
+                                    <span class="badge bg-success float-right">0</span>
 
                                 </a>
 
@@ -97,28 +98,32 @@
                                 <a href="#" class="nav-link">
 
                                     <i class="far fa-file-alt"></i> Taslaklar
+                                    <span class="badge bg-info float-right">0</span>
+
 
                                 </a>
 
                             </li>
 
-                            <li class="nav-item">
 
-                                <a href="#" class="nav-link">
-
-                                    <i class="fas fa-filter"></i> Çöp Kutusu
-
-                                    <span class="badge bg-warning float-right">65</span>
-
-                                </a>
-
-                            </li>
 
                             <li class="nav-item">
 
                                 <a href="#" class="nav-link">
 
                                     <i class="far fa-trash-alt"></i> Tanıtımlar
+                                    <span class="badge bg-warning float-right">0</span>
+
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+
+                                <a href="#" class="nav-link">
+
+                                    <i class="fas fa-filter"></i> Çöp Kutusu
+
+                                    <span class="badge bg-danger float-right">0</span>
 
                                 </a>
 
@@ -307,14 +312,14 @@
 
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                            <td class="mailbox-name"><a href="read-mail.html">@x.ContactName  @x.ContactSurname</a></td>
+                                            <td class="mailbox-name"><a href="/Contact/MessageDetails/@x.ContactID">@x.ContactName  @x.ContactSurname</a></td>
 
                                             <td class="mailbox-subject">
 
                                                 <b>
-                                                    @if (x.ContactSubject.Length > 18)
+                                                    @if (x.ContactSubject.Length > 15)
                                                     {
-                                                        <a>@x.ContactSubject.Substring(0, 18)...</a>
+                                                        <a>@x.ContactSubject.Substring(0, 15)...</a>
                                                     }
                                                     else
                                                     {

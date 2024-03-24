@@ -32,7 +32,12 @@ namespace Proje.Controllers
         public ActionResult SendBox()
         {
             var messagelist = cm.GetAll();
-            return View(messagelist);  
+            return View(messagelist);
+        }
+        public ActionResult MessageDetails(int id)
+        {
+            Contact ct = cm.GetContactDetails(id);
+            return View(ct);
         }
     }
 }

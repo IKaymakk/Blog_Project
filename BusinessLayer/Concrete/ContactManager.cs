@@ -27,6 +27,9 @@ namespace BusinessLayer.Concrete
         {
             return rc.List();
         }
-
+        public Contact GetContactDetails (int id)
+        {
+            return rc.Find(x=>x.ContactID== id);
+        }
     }
 }

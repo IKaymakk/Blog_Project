@@ -2471,6 +2471,7 @@
     <Content Include="Views\About\UpdateAboutList.cshtml" />
     <None Include="Views\Comment\AdminCommentListTrue.cshtml" />
     <Content Include="Views\Contact\SendBox.cshtml" />
+    <Content Include="Views\Contact\MessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
