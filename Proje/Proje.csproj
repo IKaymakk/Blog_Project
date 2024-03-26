@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -144,6 +145,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\Class2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2469,13 +2472,16 @@
     <Content Include="Views\Category\AdminCategoryList.cshtml" />
     <Content Include="Views\Blog\AdminBlogList2.cshtml" />
     <Content Include="Views\About\UpdateAboutList.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Chart\Chart1.cshtml" />
+    <Content Include="Views\Chart\Chart2.cshtml" />
+    <Content Include="Views\Chart\Chart3.cshtml" />
     <None Include="Views\Comment\AdminCommentListTrue.cshtml" />
     <Content Include="Views\Contact\SendBox.cshtml" />
     <Content Include="Views\Contact\MessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

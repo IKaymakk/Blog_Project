@@ -107,26 +107,32 @@
                             {
                                 color = "badge badge-dark";
                             }
-                            <tr >
+                            <tr>
                                 <td style="text-align:center">
                                     @x.BlogID
                                 </td>
                                 <td style="height:100px;">
-                                    <a>
+
+                                    <a style="color:black" href="/Blog/BlogDetails/@x.BlogID">
                                         @x.BlogTitle
                                     </a>
+
+
                                     <br />
                                     <small style=""> @x.Author.AuthorName </small>
 
                                 </td>
 
                                 <td>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="/Blog/BlogDetails/@x.BlogID">
                                                 <img alt="Avatar" class="table-avatar" style="width:80px;height:50px;border-radius:16px" src="@x.BlogImage">
-                                            </li>
-                                        </ul>
-                                    </td>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
