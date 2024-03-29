@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <aside class="main-sidebar sidebar-dark-blue elevation-4">
+            <a style="margin-top:10px" href="/Blog/AdminBlogList" class="brand-link">
+                <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png"
+                     alt="AdminLTE Logo"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">Yazar Paneli</span>
+            </a>
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Yazar Ad Soyad</a>
+                    </div>
+                </div>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li style="margin-bottom:10px" class="nav-item has-treeview">
+                            <a href="/User/BlogList" class="nav-link">
+                                <i class="nav-icon fas fa-th-list"></i>
+                                <p>
+                                    Bloglarım
+                                </p>
+                            </a>
+                        </li>
+
+                        <li style="" class="nav-item has-treeview">
+                            @*<a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-comment-dots"></i>
+                                <p>
+                                    Yorumlar
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>*@
+                            <ul style="margin-bottom :10px" class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminCommentListTrue" class="nav-link">
+                                        <i class="far fa-comment nav-icon"></i>
+                                        <p>Yayınlanan Yorumlar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminCommentListFalse" class="nav-link">
+                                        <i class="far fa-times-circle nav-icon"></i>
+                                        <p>Kaldırılan Yorumlar</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li style="margin-bottom :10px" class="nav-item has-treeview">
+                            <a href="/User/Index" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Profilimi Düzenle
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/User/LogOut" class="nav-link">
+                                <i class="nav-icon fas fa-arrow-circle-down"></i>
+                                <p>
+                                    Çıkış Yap
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        @RenderBody()
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+        </div>
+        <aside class="control-sidebar control-sidebar-dark">
+        </aside>
+    </div>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>
