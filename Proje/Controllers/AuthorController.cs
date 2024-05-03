@@ -15,11 +15,15 @@ namespace Proje.Controllers
         // GET: Author
         BlogManager bm = new BlogManager();
         AuthorManager aum = new AuthorManager();
+       
+        [AllowAnonymous]
         public PartialViewResult AuthorAbout(int id)
         {
             var BlogDetailsList = bm.GetBlogByID(id);
             return PartialView(BlogDetailsList);
         }
+
+        [AllowAnonymous]
         public PartialViewResult AuthorPopularPost(int id, int page = 1)
         {
             var blogauthorid = bm.GetAll().Where(x => x.BlogID == id).Select(y => y.AuthorID).FirstOrDefault();

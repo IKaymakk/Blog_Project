@@ -16,20 +16,25 @@ namespace Proje.Controllers
     {
         // GET: Blog
         BlogManager bm = new BlogManager();
+
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
+        [AllowAnonymous]
         public ActionResult AllBlogs(int page = 1)
         {
             var bloglist = bm.GetAll().ToPagedList(page, 9);
             return View(bloglist);
         }
+        [AllowAnonymous]
         public PartialViewResult BlogList(int a = 1)
         {
             var bloglist = bm.GetAll().ToPagedList(a, 9);
             return PartialView(bloglist);
         }
+        [AllowAnonymous]
         public PartialViewResult FeaturedPost()
         {
             var posttitle1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogTitle).FirstOrDefault();
@@ -79,6 +84,7 @@ namespace Proje.Controllers
             ViewBag.p16 = postdate5;
             return PartialView();
         }
+        [AllowAnonymous]
         public PartialViewResult OtherPost()
         {
             var posttitle1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogTitle).FirstOrDefault();
@@ -119,24 +125,24 @@ namespace Proje.Controllers
             ViewBag.p13 = postdate4;
             return PartialView();
         }
-        //public PartialViewResult MailSubscribe()
-        //{
-        //    return PartialView();
-        //}
+        [AllowAnonymous]
         public ActionResult BlogDetails()
         {
             return View();
         }
+        [AllowAnonymous]
         public PartialViewResult BlogCover(int id)
         {
             var BlogDetailsList = bm.GetBlogByID(id);
             return PartialView(BlogDetailsList);
         }
+        [AllowAnonymous]
         public PartialViewResult BlogReadAll(int id)
         {
             var BlogDetailsList = bm.GetBlogByID(id);
             return PartialView(BlogDetailsList);
         }
+        [AllowAnonymous]
         public ActionResult BlogByCategory(int id)
         {
             var BlogListByCategory = bm.GetBlogByCategory(id);
@@ -148,12 +154,12 @@ namespace Proje.Controllers
             ViewBag.cDescp = CategoryDescpriction;
             return View(BlogListByCategory);
         }
-
         public ActionResult AdminBlogList()
         {
             var bloglist = bm.GetAll();
             return View(bloglist);
         }
+     
         public ActionResult AdminBlogList2()
         {
             var bloglist = bm.GetAll();

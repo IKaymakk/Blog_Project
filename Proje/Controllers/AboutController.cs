@@ -8,8 +8,11 @@ using System.Web.Mvc;
 
 namespace Proje.Controllers
 {
+    [AllowAnonymous]
+
     public class AboutController : Controller
     {
+
         Aboutmanager abm = new Aboutmanager();
         // GET: About
         public ActionResult Index()

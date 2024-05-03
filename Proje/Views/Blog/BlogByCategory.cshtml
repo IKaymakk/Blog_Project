@@ -58,7 +58,7 @@
                             <span class="@color">@item.Category.CategoryName</span>
                             <h2><a href="/Blog/BlogDetails/@item.BlogID">@item.BlogTitle</a></h2>
                             <div class="post-meta align-items-center text-left clearfix">
-                                <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+                                <figure class="author-figure mb-0 mr-3 float-left"><img src="@item.Author.AuthorImg" alt="Image" class="img-fluid"></figure>
                                 <span class="d-inline-block mt-1">By <a href="#">@item.Author.AuthorName</a></span>
                                 <span>@(((DateTime)item.BlogDate).ToString("dd-MMM-yyyy"))</span>
                             </div>
@@ -73,7 +73,7 @@
                                     @item.BlogContent;
                                 }
                             </p>
-                            <p><a href="#">Read More</a></p>
+                            <p><a href="/Blog/BlogDetails/@item.BlogID">Devamını Oku</a></p>
                         </div>
                     </div>
                 </div>

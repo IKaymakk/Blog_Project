@@ -12,18 +12,24 @@ namespace Proje.Controllers
     {
         ContactManager cm = new ContactManager();
         // GET: Contact
+        
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
             return View();
         }
         [HttpGet]
+        
+        [AllowAnonymous]
         public ActionResult SendMessage()
         {
             return View();
         }
 
         [HttpPost]
+        
+        [AllowAnonymous]
         public ActionResult SendMessage(Contact p)
         {
             cm.BLContactAdd(p);
@@ -34,6 +40,7 @@ namespace Proje.Controllers
             var messagelist = cm.GetAll();
             return View(messagelist);
         }
+        
         public ActionResult MessageDetails(int id)
         {
             Contact ct = cm.GetContactDetails(id);

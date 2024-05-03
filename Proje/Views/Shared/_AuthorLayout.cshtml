@@ -30,9 +30,13 @@
                     <div class="image">
                         <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Yazar Ad Soyad</a>
-                    </div>
+                    @*<div class="info">
+                        @foreach (var x in Model)
+                        {
+
+                            <a href="#" class="d-block">@x.AuthorName</a>
+                        }
+                    </div>*@
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -48,12 +52,12 @@
 
                         <li style="" class="nav-item has-treeview">
                             @*<a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-comment-dots"></i>
-                                <p>
-                                    Yorumlar
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>*@
+                                    <i class="nav-icon fas fa-comment-dots"></i>
+                                    <p>
+                                        Yorumlar
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>*@
                             <ul style="margin-bottom :10px" class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="/Comment/AdminCommentListTrue" class="nav-link">

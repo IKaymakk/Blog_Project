@@ -18,7 +18,7 @@
 <body class="hold-transition sidebar-mini">
 
     @{string color = "";}
-
+    @{ string pcolor = "";}
 
 
     <!-- Main content -->
@@ -69,7 +69,7 @@
                             <th>
                                 Kapak Resmi
                             </th>
-                            <th style="text-align: center; width: 15%">
+                            <th style="text-align: center; width: 20%">
                                 Beğeni Oranı
                             </th>
                             <th style="text-align:center" class="text-center">
@@ -83,30 +83,48 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.Category.CategoryName == "Seyahat")
+                            if (x.BlogRating >= 85)
                             {
-                                color = "badge badge-success";
+                                pcolor = "progress-bar bg-green";
                             }
-                            if (x.Category.CategoryName == "Spor")
+                            if (x.BlogRating >= 71 && x.BlogRating <= 84)
                             {
-                                color = "badge badge-primary";
+                                pcolor = "progress-bar bg-info";
                             }
-                            if (x.Category.CategoryName == "Politika")
+                            if (x.BlogRating >= 50 && x.BlogRating <= 70)
                             {
-                                color = "badge badge-danger";
+                                pcolor = "progress-bar bg-warning";
                             }
-                            if (x.Category.CategoryName == "Eğitim")
+                            if (x.BlogRating <= 49)
                             {
-                                color = "badge badge-warning";
+                                pcolor = "progress-bar bg-danger";
                             }
-                            if (x.Category.CategoryName == "Yazılım - Teknoloji")
-                            {
-                                color = "badge badge-info";
-                            }
-                            if (x.Category.CategoryName == "Borsa")
-                            {
-                                color = "badge badge-dark";
-                            }
+                            <!--===============================================================================================-->
+
+                            //if (x.Category.CategoryName == "Seyahat")
+                            //{
+                            //    color = "badge badge-success";
+                            //}
+                            //if (x.Category.CategoryName == "Spor")
+                            //{
+                            //    color = "badge badge-primary";
+                            //}
+                            //if (x.Category.CategoryName == "Politika")
+                            //{
+                            //    color = "badge badge-danger";
+                            //}
+                            //if (x.Category.CategoryName == "Eğitim")
+                            //{
+                            //    color = "badge badge-warning";
+                            //}
+                            //if (x.Category.CategoryName == "Yazılım - Teknoloji")
+                            //{
+                            //    color = "badge badge-info";
+                            //}
+                            //if (x.Category.CategoryName == "Borsa")
+                            //{
+                            //    color = "badge badge-dark";
+                            //}
                             <tr>
                                 <td style="text-align:center">
                                     @x.BlogID
@@ -135,15 +153,15 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
+                                        <div class="@pcolor" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: @x.BlogRating%">
                                         </div>
                                     </div>
                                     <small>
-                                        57% Complete
+                                      Beğeni Oranı :  %@x.BlogRating
                                     </small>
                                 </td>
                                 <td class="project-state">
-                                    <span class="@color">@x.Category.CategoryName</span>
+                                    <small style="font-size:13.5px">@x.Category.CategoryName</small>
                                 </td>
                                 <td style="text-align:center" class="project-actions">
                                     <a class="btn btn-primary btn-sm" href="/Blog/GetCommentByBlog/@x.BlogID">
@@ -169,6 +187,7 @@
                 </table>
 
             </div>
+            <a style="height:38px;margin-left:17px;margin-top:7px;" href="/Blog/AddNewBlog/" class="btn btn-primary">Yeni Blog Girişi</a>
 
             <!-- /.card-body -->
 

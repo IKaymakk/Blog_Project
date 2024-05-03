@@ -15,6 +15,8 @@ namespace Proje.Controllers
             var cvalues = cm.GetAll();
             return View(cvalues);
         }
+        
+        [AllowAnonymous]
         public PartialViewResult BlogDetailsCategories()
         {
             var cvalues = cm.GetAll();

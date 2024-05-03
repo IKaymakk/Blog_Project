@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace Proje.Controllers
 {
+    [AllowAnonymous]
+
     public class ErrorController : Controller
     {
         // GET: Error

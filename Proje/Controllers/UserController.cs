@@ -10,13 +10,13 @@ using System.Web.Security;
 
 namespace Proje.Controllers
 {
-    [Authorize]
+  
     public class UserController : Controller
     {
         // GET: User
         UserProfileManager um = new UserProfileManager();
         BlogManager bm = new BlogManager();
-
+      
         public ActionResult Index()
         {
             return View();

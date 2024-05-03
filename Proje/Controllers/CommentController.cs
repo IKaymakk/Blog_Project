@@ -12,20 +12,27 @@ namespace Proje.Controllers
     {
         // GET: Comment
         CommentManager cm = new CommentManager();
+        
+        [AllowAnonymous]
         public PartialViewResult CommentList(int id)
         {
             var clist = cm.CommentByBlog(id);
             return PartialView(clist);
         }
         [HttpGet]
+        
+        [AllowAnonymous]
         public PartialViewResult LeaveComment(int id)
         {
             ViewBag.CommentId = id;
             return PartialView();
         }
         [HttpPost]
+        
+        [AllowAnonymous]
         public PartialViewResult LeaveComment(Comment c)
         {
+            c.CommentStatus = true;
             cm.CommentAdd(c);
             return PartialView();
         }

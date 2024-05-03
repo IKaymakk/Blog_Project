@@ -9,10 +9,12 @@ using System.Web.Mvc;
 
 namespace Proje.Controllers
 {
+    [AllowAnonymous]
     public class MailSubscribeController : Controller
     {
         // GET: MailSubscribe
         [HttpGet]
+        
         public PartialViewResult AddMail()
         {
             return PartialView();
