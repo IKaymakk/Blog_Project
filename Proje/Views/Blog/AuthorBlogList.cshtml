@@ -1,27 +1,13 @@
 ﻿@model IEnumerable<EntityLayer.Concrete.Blog>
 
 @{
-    ViewBag.Title = "AdminBlogList2";
+    ViewBag.Title = "AuthorBlogList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-
-
-
-<!DOCTYPE html>
-
-<html>
-
-
-
 <body class="hold-transition sidebar-mini">
-
-    @*@{string color = "";}*@
-    @{ string pcolor = "";}
-
-
-    <!-- Main content -->
+    @{string color = "";}
+    @{string pcolor = "";}
 
     <section style="width:100%" class="content">
 
@@ -53,6 +39,8 @@
 
             <div class="card-body p-0">
 
+                <!--===============================================================================================-->
+
                 <table class="table table-striped projects">
 
                     <thead>
@@ -81,6 +69,8 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <!--===============================================================================================-->
                         @foreach (var x in Model)
                         {
                             if (x.BlogRating >= 85)
@@ -101,41 +91,45 @@
                             }
                             <!--===============================================================================================-->
 
-                            //if (x.Category.CategoryName == "Seyahat")
-                            //{
-                            //    color = "badge badge-success";
-                            //}
-                            //if (x.Category.CategoryName == "Spor")
-                            //{
-                            //    color = "badge badge-primary";
-                            //}
-                            //if (x.Category.CategoryName == "Politika")
-                            //{
-                            //    color = "badge badge-danger";
-                            //}
-                            //if (x.Category.CategoryName == "Eğitim")
-                            //{
-                            //    color = "badge badge-warning";
-                            //}
-                            //if (x.Category.CategoryName == "Yazılım - Teknoloji")
-                            //{
-                            //    color = "badge badge-info";
-                            //}
-                            //if (x.Category.CategoryName == "Borsa")
-                            //{
-                            //    color = "badge badge-dark";
-                            //}
+                            if (x.Category.CategoryName == "Seyahat")
+                            {
+                                color = "badge badge-success";
+                            }
+                            if (x.Category.CategoryName == "Spor")
+                            {
+                                color = "badge badge-primary";
+                            }
+                            if (x.Category.CategoryName == "Politika")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            if (x.Category.CategoryName == "Eğitim")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            if (x.Category.CategoryName == "Yazılım - Teknoloji")
+                            {
+                                color = "badge badge-info";
+                            }
+                            if (x.Category.CategoryName == "Borsa")
+                            {
+                                color = "badge badge-dark";
+                            }
+
+
+                            <!--===============================================================================================-->
+
+
                             <tr>
                                 <td style="text-align:center">
                                     @x.BlogID
                                 </td>
+
                                 <td style="height:100px;">
 
                                     <a style="color:black" href="/Blog/BlogDetails/@x.BlogID">
                                         @x.BlogTitle
                                     </a>
-
-
                                     <br />
                                     <small style=""> @x.Author.AuthorName </small>
 
@@ -153,22 +147,32 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="@pcolor" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: @x.BlogRating%">
+                                        <div class="@pcolor" aria-volumemax="100" style="width: @x.BlogRating%">
                                         </div>
                                     </div>
                                     <small>
-                                      Beğeni Oranı :  %@x.BlogRating
+                                        Beğeni Oranı %@x.BlogRating
                                     </small>
-                                </td>
+                                    @*</td>
+                                          <td class="project_progress">
+                                            <div class="progress progress-sm">
+                                                <progress  class="progress-bar" style="width:100%" value="@x.BlogRating" max="10">
+                                                </progress>
+                                            </div>
+                                            <small>
+                                                Beğeni Oranı: @x.BlogRating
+                                            </small>
+                                        </td>*@
+
                                 <td class="project-state">
                                     <small style="font-size:13.5px">@x.Category.CategoryName</small>
                                 </td>
                                 <td style="text-align:center" class="project-actions">
-                                    <a class="btn btn-primary btn-sm" href="/Blog/GetCommentByBlog/@x.BlogID">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        Yorumlar
-                                    </a>
+                                    @*<a class="btn btn-primary btn-sm" href="/Blog/GetCommentByBlog/@x.BlogID">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Yorumlar
+                                        </a>*@
                                     <a class="btn btn-info btn-sm" href="/Blog/UpdateBlog/@x.BlogID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
@@ -183,21 +187,12 @@
                             </tr>
                         }
                     </tbody>
-
+                    <!--===============================================================================================-->
                 </table>
-
             </div>
-            <a style="height:38px;margin-left:17px;margin-top:7px;" href="/Blog/AddNewBlog/" class="btn btn-primary">Yeni Blog Girişi</a>
-
             <!-- /.card-body -->
-
         </div>
-
         <!-- /.card -->
-
     </section>
-
 </body>
-
-</html>
 

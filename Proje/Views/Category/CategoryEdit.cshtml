@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "CategoryEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form style="margin-left:350px;margin-top:200px" class="form-group" method="post">
+
+    @Html.Label("Kategori Adı", new { @style = "margin-left:225px;width:300px" })
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Açıklaması", new { @style = "margin-left:225px" })
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <br />
+    <button style="margin-left:225px" class="btn btn-primary">Kaydet</button>
+    @Html.Label("", new { @style = "margin-left:225px, " })
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control", @style = "opacity:0" })
+</form>
+
+
+
+

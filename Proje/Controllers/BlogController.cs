@@ -15,6 +15,7 @@ namespace Proje.Controllers
     public class BlogController : Controller
     {
         // GET: Blog
+        UserProfileManager um = new UserProfileManager();
         BlogManager bm = new BlogManager();
 
         [AllowAnonymous]
@@ -232,6 +233,11 @@ namespace Proje.Controllers
             CommentManager cm = new CommentManager();
             var commentlist = cm.CommentByBlog(id);
             return View(commentlist);
+        }
+        public ActionResult AuthorBlogList(int id)
+        {
+            var blogs = um.GetBlogByAuthor(id);
+            return View(blogs);
         }
     }
 }

@@ -32,7 +32,7 @@
                                                         @if (@x.AuthorMail.Length >= 29)
                                                         {
                                                             @x.AuthorMail.Substring(0, 24);
-                                                         <a>....</a>   
+                                                            <a>....</a>
                                                         }
                                                         else
                                                         {
@@ -51,12 +51,11 @@
                                     </div>
                                     <div class="card-footer">
                                         <div>
-                                            <a href="#" class="btn btn-sm bg-teal">
-                                                <i class="fas fa-th-list"></i> Yazara Ait Bloglar
+                                            <a style="width:350px;font-family:Verdana" href="/Blog/AuthorBlogList/@x.AuthorID" class="btn btn-outline-success">
+                                                    Yazarın Blogları
+                                               
                                             </a>
-                                            <a href="/Author/AuthorEdit/@x.AuthorID" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-user"></i>  Profili Düzenle
-                                            </a>
+
 
                                         </div>
                                     </div>

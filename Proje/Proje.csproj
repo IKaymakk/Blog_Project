@@ -2705,6 +2705,8 @@
     <Content Include="Views\Chart\Chart1.cshtml" />
     <Content Include="Views\Chart\Chart2.cshtml" />
     <Content Include="Views\Chart\Chart3.cshtml" />
+    <Content Include="Views\Blog\AuthorBlogList.cshtml" />
+    <Content Include="Views\Category\CategoryEdit.cshtml" />
     <None Include="Views\Comment\AdminCommentListTrue.cshtml" />
     <Content Include="Views\Contact\SendBox.cshtml" />
     <Content Include="Views\Contact\MessageDetails.cshtml" />
