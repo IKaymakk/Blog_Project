@@ -48,5 +48,6 @@ namespace BusinessLayer.Concrete
             comment.CommentStatus = true;
             return rc.Update(comment);
         }
+        
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\About.cs" />
+    <Compile Include="Concrete\AdminManager.cs" />
     <Compile Include="Concrete\AuthorManager.cs" />
     <Compile Include="Concrete\BlogManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />

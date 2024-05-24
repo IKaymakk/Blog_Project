@@ -27,9 +27,14 @@ namespace BusinessLayer.Concrete
         {
             return rc.List();
         }
-        public Contact GetContactDetails (int id)
+        public Contact GetContactDetails(int id)
         {
-            return rc.Find(x=>x.ContactID== id);
+            return rc.Find(x => x.ContactID == id);
+        }
+        public int DeleteMessage(int p)
+        {
+            Contact contact = rc.Find(x => x.ContactID == p);
+            return rc.Delete(contact);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Proje.Controllers
         // GET: Blog
         UserProfileManager um = new UserProfileManager();
         BlogManager bm = new BlogManager();
+        CategoryManager cm = new CategoryManager();
 
         [AllowAnonymous]
         public ActionResult Index()
@@ -32,7 +33,7 @@ namespace Proje.Controllers
         [AllowAnonymous]
         public PartialViewResult BlogList(int a = 1)
         {
-            var bloglist = bm.GetAll().ToPagedList(a, 9);
+            var bloglist = bm.GetAll().OrderByDescending(x=>x.BlogID).ToPagedList(a, 9);
             return PartialView(bloglist);
         }
         [AllowAnonymous]
@@ -88,38 +89,38 @@ namespace Proje.Controllers
         [AllowAnonymous]
         public PartialViewResult OtherPost()
         {
-            var posttitle1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogTitle).FirstOrDefault();
-            var postcontent1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogImage).FirstOrDefault();
-            var postdate1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogDate).FirstOrDefault();
-            var blogid1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 1).Select(z => z.BlogID).FirstOrDefault();
+            var posttitle1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 8).Select(z => z.BlogTitle).FirstOrDefault();
+            var postcontent1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 8).Select(z => z.BlogImage).FirstOrDefault();
+            var postdate1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 8).Select(z => z.BlogDate).FirstOrDefault();
+            var blogid1 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 8).Select(z => z.BlogID).FirstOrDefault();
             ViewBag.bid1 = blogid1;
             ViewBag.p1 = posttitle1;
             ViewBag.p2 = postcontent1;
             ViewBag.p3 = postdate1;
 
-            var posttitle2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 2).Select(z => z.BlogTitle).FirstOrDefault();
-            var postimage2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 2).Select(z => z.BlogImage).FirstOrDefault();
-            var postdate2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 2).Select(z => z.BlogDate).FirstOrDefault();
-            var blogid2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 2).Select(z => z.BlogID).FirstOrDefault();
+            var posttitle2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID ==4).Select(z => z.BlogTitle).FirstOrDefault();
+            var postimage2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogImage).FirstOrDefault();
+            var postdate2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogDate).FirstOrDefault();
+            var blogid2 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID ==4).Select(z => z.BlogID).FirstOrDefault();
             ViewBag.bid2 = blogid2;
             ViewBag.p4 = posttitle2;
             ViewBag.p5 = postimage2;
             ViewBag.p6 = postdate2;
 
-            var posttitle3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogTitle).FirstOrDefault();
-            var postimage3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogImage).FirstOrDefault();
-            var postdate3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogDate).FirstOrDefault();
-            var postcategory = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(x => x.Category.CategoryName).FirstOrDefault();
-            var blogid4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 4).Select(z => z.BlogID).FirstOrDefault();
+            var posttitle3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 9).Select(z => z.BlogTitle).FirstOrDefault();
+            var postimage3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 9).Select(z => z.BlogImage).FirstOrDefault();
+            var postdate3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 9).Select(z => z.BlogDate).FirstOrDefault();
+            var postcategory = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 9).Select(x => x.Category.CategoryName).FirstOrDefault();
+            var blogid4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 9).Select(z => z.BlogID).FirstOrDefault();
             ViewBag.bid4 = blogid4;
             ViewBag.p7 = posttitle3;
             ViewBag.p8 = postimage3;
             ViewBag.p9 = postdate3;
 
-            var posttitle4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 3).Select(z => z.BlogTitle).FirstOrDefault();
-            var postimage4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 3).Select(z => z.BlogImage).FirstOrDefault();
-            var postdate4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 3).Select(z => z.BlogDate).FirstOrDefault();
-            var blogid3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 3).Select(z => z.BlogID).FirstOrDefault();
+            var posttitle4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 10).Select(z => z.BlogTitle).FirstOrDefault();
+            var postimage4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 10).Select(z => z.BlogImage).FirstOrDefault();
+            var postdate4 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 10).Select(z => z.BlogDate).FirstOrDefault();
+            var blogid3 = bm.GetAll().OrderByDescending(x => x.BlogID).Where(y => y.CategoryID == 10).Select(z => z.BlogID).FirstOrDefault();
             ViewBag.bid3 = blogid3;
             ViewBag.p11 = posttitle4;
             ViewBag.p12 = postimage4;
@@ -155,18 +156,24 @@ namespace Proje.Controllers
             ViewBag.cDescp = CategoryDescpriction;
             return View(BlogListByCategory);
         }
-        public ActionResult AdminBlogList()
+
+        public ActionResult AdminCategoryDetails(int id)
         {
-            var bloglist = bm.GetAll();
-            return View(bloglist);
+            return View();
         }
-     
-        public ActionResult AdminBlogList2()
+        //public ActionResult AdminBlogList()
+        //{
+        //    var bloglist = bm.GetAll();
+        //    return View(bloglist);
+        //}
+
+        public ActionResult AdminBlogList2(int page = 1)
         {
-            var bloglist = bm.GetAll();
+            var bloglist = bm.GetAll().ToPagedList(page, 5);
             return View(bloglist);
         }
         [HttpGet]
+        [Authorize(Roles = "A")]
         public ActionResult AddNewBlog()
         {
             Context c = new Context();
@@ -191,7 +198,7 @@ namespace Proje.Controllers
         public ActionResult AddNewBlog(Blog b)
         {
             bm.BlogAddBL(b);
-            return RedirectToAction("AdminBlogList");
+            return RedirectToAction("AdminBlogList2");
         }
         public ActionResult DeleteBlog(int id)
         {
@@ -226,7 +233,7 @@ namespace Proje.Controllers
         public ActionResult UpdateBlog(Blog p)
         {
             bm.UpdateBlog(p);
-            return RedirectToAction("AdminBlogList");
+            return RedirectToAction("AdminBlogList2");
         }
         public ActionResult GetCommentByBlog(int id)
         {
@@ -238,6 +245,20 @@ namespace Proje.Controllers
         {
             var blogs = um.GetBlogByAuthor(id);
             return View(blogs);
+        }
+        [AllowAnonymous]
+        public PartialViewResult AllCategories(int page = 1)
+        {
+            var categorylist = cm.GetAll().OrderBy(x => x.CategoryName.Length).ToPagedList(page, 4);
+            return PartialView(categorylist);
+        }
+        [AllowAnonymous]
+        public ActionResult AllCategoriesDetails()
+        {
+
+
+            var cateegorylist = cm.GetAll();
+            return View(cateegorylist);
         }
     }
 }

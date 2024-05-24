@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete
         public int ChangeCategoryStatusBL(int id)
         {
             Category c = repocategory.Find(x => x.CategoryID == id);
-            if(c.CategoryStatus == true)
+            if (c.CategoryStatus == true)
             {
                 c.CategoryStatus = false;
                 return repocategory.Update(c);
@@ -51,5 +51,6 @@ namespace BusinessLayer.Concrete
             c.CategoryStatus = true;
             return repocategory.Update(c);
         }
+       
     }
 }

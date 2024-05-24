@@ -1,22 +1,16 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Blog>
 
 @{
     ViewBag.Title = "AdminBlogList2";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
-
-
-
 <!DOCTYPE html>
-
 <html>
 
-
-
 <body class="hold-transition sidebar-mini">
-
+    @{ int puan = 1;}
     @*@{string color = "";}*@
     @{ string pcolor = "";}
 
@@ -83,22 +77,23 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.BlogRating >= 85)
+                            if (x.BlogRating >= 7)
                             {
                                 pcolor = "progress-bar bg-green";
                             }
-                            if (x.BlogRating >= 71 && x.BlogRating <= 84)
+                            if (x.BlogRating >= 5 && x.BlogRating <= 6)
                             {
                                 pcolor = "progress-bar bg-info";
                             }
-                            if (x.BlogRating >= 50 && x.BlogRating <= 70)
+                            if (x.BlogRating >= 3 && x.BlogRating <= 4)
                             {
                                 pcolor = "progress-bar bg-warning";
                             }
-                            if (x.BlogRating <= 49)
+                            if (x.BlogRating <= 2)
                             {
                                 pcolor = "progress-bar bg-danger";
                             }
+                            puan = x.BlogRating * 10;
                             <!--===============================================================================================-->
 
                             //if (x.Category.CategoryName == "Seyahat")
@@ -153,11 +148,11 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="@pcolor" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: @x.BlogRating%">
+                                        <div class="@pcolor" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: @puan%">
                                         </div>
                                     </div>
                                     <small>
-                                      Beğeni Oranı :  %@x.BlogRating
+                                        Beğeni Oranı : %@puan
                                     </small>
                                 </td>
                                 <td class="project-state">
@@ -189,6 +184,7 @@
             </div>
             <a style="height:38px;margin-left:17px;margin-top:7px;" href="/Blog/AddNewBlog/" class="btn btn-primary">Yeni Blog Girişi</a>
 
+
             <!-- /.card-body -->
 
         </div>
@@ -196,6 +192,7 @@
         <!-- /.card -->
 
     </section>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("AdminBlogList2", new { page }))
 
 </body>
 

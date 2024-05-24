@@ -3,27 +3,37 @@
     ViewBag.Title = "AddNewBlog";
     Layout = "~/Views/Shared/_AuthorLayout.cshtml";
 }
+<div style="flex-direction: column; padding:124px 50px">
+    <div>
+        <b>Pasif Kategorilere Blog Eklemeyiniz.</b>
 
-<form style="margin-left:350px;margin-top:0px" class="form-group" method="post">
+    </div>
+    <div>
+        <a style="color:#1b1b1b" href="/User/UserCategoryList">
+            Kategori Durumları
+        </a>
+    </div>
+</div>
+<form style="margin-left:350px;margin-top:0px;position:absolute" class="form-group" method="post">
 
     @Html.Label("Blog Başlığı", new { @style = "margin-left:225px" })
-    @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control", placeholder = "Boş Bırakılamaz" })
     <br />
     @Html.Label("Blog Kategorisi", new { @style = "margin-left:225px" })
     @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
     <br />
     @Html.Label("Blog Tarihi", new { @style = "margin-left:225px" })
-    @Html.TextBoxFor(x => x.BlogDate, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.BlogDate, new { @class = "form-control", placeholder = "Boş Bırakılamaz" })
     <br />
     @Html.Label("Blog Yazarı", new { @style = "margin-left:225px" })
     @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.values2, new { @class = "form-control" })
     <br />
     @Html.Label("Blog İçeriği", new { @style = "margin-left:225px" })
-    @Html.TextAreaFor(x => x.BlogContent, 3, 5, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.BlogContent, 3, 5, new { @class = "form-control", placeholder = "En Az 100 Karakter Giriniz" })
     <br />
     <div style="display:flex">
         @Html.Label("Ana Resim")
-        @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control", placeholder = "Boş Bırakılamaz" })
         <br />
         @Html.Label("Resim 2")
         @Html.TextBoxFor(x => x.BlogImage2, new { @class = "form-control" })

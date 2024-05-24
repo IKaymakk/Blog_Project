@@ -1,13 +1,17 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Blog>
 @{
     ViewBag.Title = "BlogList";
     Layout = "~/Views/Shared/_AuthorLayout.cshtml";
 }
+<head>
+</head>
 
 
 <body class="hold-transition sidebar-mini">
 
-
+    @{ int puan = 1;}
     @{string color = "";}
     @{string pcolor = "";}
 
@@ -54,8 +58,8 @@
                                 Blog Başlığı
                             </th>
                             @*<th style="text-align:center" >
-                            Yazar
-                        </th>*@
+                                    Yazar
+                                </th>*@
                             <th>
                                 Kapak Resmi
                             </th>
@@ -75,22 +79,23 @@
                         <!--===============================================================================================-->
                         @foreach (var x in Model)
                         {
-                            if (x.BlogRating >= 85)
+                            if (x.BlogRating >= 7)
                             {
                                 pcolor = "progress-bar bg-green";
                             }
-                            if (x.BlogRating >= 71 && x.BlogRating <= 84)
+                            if (x.BlogRating >= 5 && x.BlogRating <= 6)
                             {
                                 pcolor = "progress-bar bg-info";
                             }
-                            if (x.BlogRating >= 50 && x.BlogRating <= 70)
+                            if (x.BlogRating >= 3 && x.BlogRating <= 4)
                             {
                                 pcolor = "progress-bar bg-warning";
                             }
-                            if (x.BlogRating <= 49)
+                            if (x.BlogRating <= 2)
                             {
                                 pcolor = "progress-bar bg-danger";
                             }
+                            puan = x.BlogRating * 10;
                             <!--===============================================================================================-->
 
                             if (x.Category.CategoryName == "Seyahat")
@@ -149,32 +154,32 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="@pcolor" aria-volumemax="100" style="width: @x.BlogRating%">
+                                        <div class="@pcolor" aria-volumemax="100" style="width:  @puan%">
                                         </div>
                                     </div>
                                     <small>
-                                        Beğeni Oranı %@x.BlogRating
+                                        Beğeni Oranı : %@puan
                                     </small>
                                     @*</td>
-                                  <td class="project_progress">
-                                    <div class="progress progress-sm">
-                                        <progress  class="progress-bar" style="width:100%" value="@x.BlogRating" max="10">
-                                        </progress>
-                                    </div>
-                                    <small>
-                                        Beğeni Oranı: @x.BlogRating
-                                    </small>
-                                </td>*@
+                                          <td class="project_progress">
+                                            <div class="progress progress-sm">
+                                                <progress  class="progress-bar" style="width:100%" value="@x.BlogRating" max="10">
+                                                </progress>
+                                            </div>
+                                            <small>
+                                                Beğeni Oranı: @x.BlogRating
+                                            </small>
+                                        </td>*@
 
                                 <td class="project-state">
                                     <small style="font-size:13.5px">@x.Category.CategoryName</small>
                                 </td>
                                 <td style="text-align:center" class="project-actions">
                                     @*<a class="btn btn-primary btn-sm" href="/Blog/GetCommentByBlog/@x.BlogID">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    Yorumlar
-                                </a>*@
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Yorumlar
+                                        </a>*@
                                     <a class="btn btn-info btn-sm" href="/User/UpdateBlog/@x.BlogID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
@@ -197,4 +202,6 @@
         </div>
         <!-- /.card -->
     </section>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("BlogList", new { page }))
+
 </body>

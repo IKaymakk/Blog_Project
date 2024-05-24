@@ -7,34 +7,48 @@
             position: relative;
         }
     </style>*@
-@{ string color = "";}
-@foreach (var y in Model)
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@{ string color = "post-category text-white bg-dark mb-3";}
+@foreach (var x in Model)
 {
 
 
-    if (y.Category.CategoryName == "Seyahat")
+    if (x.Category.CategoryName == "Seyahat")
     {
         color = "post-category text-white bg-success mb-3";
     }
-    if (y.Category.CategoryName == "Spor")
+    if (x.Category.CategoryName == "Spor")
     {
         color = "post-category text-white bg-primary mb-3";
     }
-    if (y.Category.CategoryName == "Politika")
+    if (x.Category.CategoryName == "Politika")
     {
         color = "post-category text-white bg-danger mb-3";
     }
-    if (y.Category.CategoryName == "Eğitim")
+    if (x.Category.CategoryName == "Eğitim ve Kariyer")
     {
         color = "post-category text-white bg-warning mb-3";
     }
-    if (y.Category.CategoryName == "Yazılım - Teknoloji")
+    if (x.Category.CategoryName == "Yazılım - Teknoloji")
     {
         color = "post-category text-white bg-info mb-3";
     }
-    if (y.Category.CategoryName == "Borsa")
+    if (x.Category.CategoryName == "Müzik ve Sanat")
+    {
+        color = "post-category text-black bg-warning mb-3";
+    }
+    if (x.Category.CategoryName == "Finans")
     {
         color = "post-category text-white bg-dark mb-3";
+    }
+    if (x.Category.CategoryName == "Evcil Hayvanlar")
+    {
+        color = "post-category text-warning bg-secondary mb-3";
+    }
+    if (x.Category.CategoryName == "Alternatif Hayat")
+    {
+        color = "post-category text-black bg-success  mb-3";
     }
 }
 
@@ -45,12 +59,16 @@
             <div class="row same-height justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="post-entry text-center">
-                        <span class="@color">@x.Category.CategoryName</span>
+                        <a href="/Blog/BlogByCategory/@x.CategoryID" class="@color">@x.Category.CategoryName</a>
                         <h1 class="mb-4"><a>@x.BlogTitle</a></h1>
                         <div class="post-meta align-items-center text-center">
                             <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="@x.Author.AuthorImg" alt="Image" class="img-fluid"></figure>
                             <span class="d-inline-block mt-1">@x.Author.AuthorName</span>
                             <span>&nbsp;-&nbsp;@x.BlogDate.ToString("d MMM yyy")</span>
+                            <br />
+                            <br />
+                            <span style="margin-left:17px" class="fa fa-star">@x.BlogRating</span>
+
                         </div>
                     </div>
                 </div>

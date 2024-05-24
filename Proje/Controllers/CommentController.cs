@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Proje.Controllers
     {
         // GET: Comment
         CommentManager cm = new CommentManager();
-        
+
         [AllowAnonymous]
         public PartialViewResult CommentList(int id)
         {
@@ -20,7 +21,7 @@ namespace Proje.Controllers
             return PartialView(clist);
         }
         [HttpGet]
-        
+
         [AllowAnonymous]
         public PartialViewResult LeaveComment(int id)
         {
@@ -28,7 +29,7 @@ namespace Proje.Controllers
             return PartialView();
         }
         [HttpPost]
-        
+
         [AllowAnonymous]
         public PartialViewResult LeaveComment(Comment c)
         {
@@ -36,9 +37,9 @@ namespace Proje.Controllers
             cm.CommentAdd(c);
             return PartialView();
         }
-        public ActionResult AdminCommentListTrue()
+        public ActionResult AdminCommentListTrue(int page = 1)
         {
-            var commenlist = cm.CommentByStatus().OrderByDescending(x=>x.CommentID);
+            var commenlist = cm.CommentByStatus().OrderByDescending(x => x.CommentID).ToPagedList(page, 10);
             return View(commenlist);
         }
         public ActionResult ChangeCommentStatus(int id)
@@ -46,9 +47,9 @@ namespace Proje.Controllers
             cm.CommentStatusChangeToFalse(id);
             return RedirectToAction("AdminCommentListTrue");
         }
-        public ActionResult AdminCommentListFalse()
+        public ActionResult AdminCommentListFalse(int page = 1)
         {
-            var commentlist = cm.CommentStatusFalse().OrderByDescending(x => x.CommentID);
+            var commentlist = cm.CommentStatusFalse().OrderByDescending(x => x.CommentID).ToPagedList(page, 10);
             return View(commentlist);
         }
         public ActionResult ChangeCommentStatusTrue(int id)

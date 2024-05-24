@@ -27,7 +27,7 @@ namespace Proje.Controllers
         public PartialViewResult AuthorPopularPost(int id, int page = 1)
         {
             var blogauthorid = bm.GetAll().Where(x => x.BlogID == id).Select(y => y.AuthorID).FirstOrDefault();
-            var authorblogs = bm.GetBlogByAuthor(blogauthorid).ToPagedList(page, 3).OrderByDescending(x => x.CategoryID);
+            var authorblogs = bm.GetBlogByAuthor(blogauthorid).OrderByDescending(x => x.BlogID).ToPagedList(page, 3);
             return PartialView(authorblogs); ;
         }
         public ActionResult AuthorList()

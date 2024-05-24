@@ -50,7 +50,7 @@ namespace Proje.Controllers
             {
                 FormsAuthentication.SetAuthCookie(admininfo.UserName, false);
                 Session["UserName"] = admininfo.UserName.ToString();
-                return RedirectToAction("AdminBlogList2", "Blog");
+                return RedirectToAction("AuthorList","Author");
             }
             else
             {

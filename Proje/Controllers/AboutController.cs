@@ -38,5 +38,9 @@ namespace Proje.Controllers
             abm.BMUpdateAbout(p);
             return RedirectToAction("UpdateAboutList");
         }
+        public PartialViewResult AboutSmallDetails()
+        {
+            return PartialView();
+        }
     }
 }

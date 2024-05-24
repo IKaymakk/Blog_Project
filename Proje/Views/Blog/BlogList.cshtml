@@ -1,22 +1,22 @@
-﻿@using PagedList
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@using PagedList
 @using PagedList.Mvc
 
-@model IEnumerable<EntityLayer.Concrete.Blog>
-@{ string color = "";}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@{ int puan = 1;}
+@{ string color = "post-category text-white bg-dark mb-3";}
 <div class="site-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
                 <a href="/Blog/AllBlogs">
-                    <h2 >Tüm Yazılar</h2>
+                    <h2>Tüm Yazılar</h2>
                 </a>
             </div>
         </div>
         <div class="row">
             @foreach (var x in Model)
             {
-
-
                 if (x.Category.CategoryName == "Seyahat")
                 {
                     color = "post-category text-white bg-success mb-3";
@@ -29,7 +29,7 @@
                 {
                     color = "post-category text-white bg-danger mb-3";
                 }
-                if (x.Category.CategoryName == "Eğitim")
+                if (x.Category.CategoryName == "Eğitim ve Kariyer")
                 {
                     color = "post-category text-white bg-warning mb-3";
                 }
@@ -37,19 +37,34 @@
                 {
                     color = "post-category text-white bg-info mb-3";
                 }
+                if (x.Category.CategoryName == "Müzik ve Sanat")
+                {
+                    color = "post-category text-black bg-warning mb-3";
+                }
+                if (x.Category.CategoryName == "Finans")
+                {
+                    color = "post-category text-white bg-dark mb-3";
+                }
+                if (x.Category.CategoryName == "Evcil Hayvanlar")
+                {
+                    color = "post-category text-warning bg-secondary mb-3";
+                }
+                if (x.Category.CategoryName == "Alternatif Hayat")
+                {
+                    color = "post-category text-black bg-success  mb-3";
+                }
                 <div class="col-lg-4 mb-4">
-                    <div class="entry2">
-                        <a href="/Blog/BlogDetails/@x.BlogID"><img style="height:220px" src="@x.BlogImage" alt="Image" class="img-fluid rounded"></a>
+                    <div class="entry2 ">
+                        <a href="/Blog/BlogDetails/@x.BlogID"><img style="height:220px;width:450px" src="@x.BlogImage" alt="Image" class="img-fluid rounded"></a>
                         <div class="excerpt">
-                            <span class="@color">@x.Category.CategoryName</span>
-
+                            <a href="/Blog/BlogByCategory/@x.CategoryID" class="@color">@x.Category.CategoryName</a>
                             <h2><a href="/Blog/BlogDetails/@x.BlogID">@x.BlogTitle</a></h2>
                             <div class="post-meta align-items-center text-left clearfix">
                                 <figure class="author-figure mb-0 mr-3 float-left"><img style="width:30px;height:30px" src="@x.Author.AuthorImg" alt="Image" class="img-fluid"></figure>
-                                <span class="d-inline-block mt-1">By <a href="#">@x.Author.AuthorName</a></span>
-                                <span>&nbsp;-&nbsp; @(((DateTime)x.BlogDate).ToString("dd MMM yyyy")) </span>
+                                <span class="d-inline-block mt-1"><a>@x.Author.AuthorName</a></span>
+                                <span style="margin-left:5px">@(((DateTime)x.BlogDate).ToString("dd MMM yyyy"))</span>
+                                <span style="margin-left:5px" class="fa fa-star">@x.BlogRating</span>
                             </div>
-
                             <p>
                                 @if (@x.BlogContent.Length > 150)
                                 {
@@ -59,9 +74,9 @@
                                 {
                                     @x.BlogContent;
                                 }
-
                             </p>
                             <p><a href="/Blog/BlogDetails/@x.BlogID">Devamını Oku</a></p>
+
                         </div>
                     </div>
                 </div>

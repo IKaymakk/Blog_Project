@@ -6,6 +6,7 @@
 }
 
 <body class="hold-transition sidebar-mini">
+    @{ int puan = 1;}
     @{string color = "";}
     @{string pcolor = "";}
 
@@ -73,22 +74,23 @@
                         <!--===============================================================================================-->
                         @foreach (var x in Model)
                         {
-                            if (x.BlogRating >= 85)
+                            if (x.BlogRating >= 7)
                             {
                                 pcolor = "progress-bar bg-green";
                             }
-                            if (x.BlogRating >= 71 && x.BlogRating <= 84)
+                            if (x.BlogRating >= 5 && x.BlogRating <= 6)
                             {
                                 pcolor = "progress-bar bg-info";
                             }
-                            if (x.BlogRating >= 50 && x.BlogRating <= 70)
+                            if (x.BlogRating >= 3 && x.BlogRating <= 4)
                             {
                                 pcolor = "progress-bar bg-warning";
                             }
-                            if (x.BlogRating <= 49)
+                            if (x.BlogRating <= 2)
                             {
                                 pcolor = "progress-bar bg-danger";
                             }
+                            puan = x.BlogRating * 10;
                             <!--===============================================================================================-->
 
                             if (x.Category.CategoryName == "Seyahat")
@@ -147,11 +149,11 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="@pcolor" aria-volumemax="100" style="width: @x.BlogRating%">
+                                        <div class="@pcolor" aria-volumemax="100" style="width:  @puan%">
                                         </div>
                                     </div>
                                     <small>
-                                        Beğeni Oranı %@x.BlogRating
+                                        Beğeni Oranı % @puan
                                     </small>
                                     @*</td>
                                           <td class="project_progress">
@@ -163,7 +165,6 @@
                                                 Beğeni Oranı: @x.BlogRating
                                             </small>
                                         </td>*@
-
                                 <td class="project-state">
                                     <small style="font-size:13.5px">@x.Category.CategoryName</small>
                                 </td>

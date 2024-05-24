@@ -31,10 +31,14 @@ namespace BusinessLayer.Concrete
         {
             return repoblog.List(x => x.CategoryID == id);
         }
+        public List<Blog> GetLastBlogByCategory(int id)
+        {
+            return repoblog.List(x => x.CategoryID == id);
+        }
         public int BlogAddBL(Blog p)
         {
             if (p.BlogTitle == "" || p.BlogTitle.Length <= 6 || p.BlogImage == "" ||
-                p.BlogContent.Length <= 150)
+                p.BlogContent.Length <= 100)
             {
                 return -1;
             }
@@ -53,11 +57,11 @@ namespace BusinessLayer.Concrete
         {
             Blog abc = repoblog.Find(x => x.BlogID == p.BlogID);
             abc.BlogTitle = p.BlogTitle;
-            abc.BlogContent= p.BlogContent;
-            abc.BlogDate= p.BlogDate;
-            abc.BlogImage= p.BlogImage;
-            abc.AuthorID= p.AuthorID;
-            abc.CategoryID= p.CategoryID;
+            abc.BlogContent = p.BlogContent;
+            abc.BlogDate = p.BlogDate;
+            abc.BlogImage = p.BlogImage;
+            abc.AuthorID = p.AuthorID;
+            abc.CategoryID = p.CategoryID;
             return repoblog.Update(abc);
         }
     }

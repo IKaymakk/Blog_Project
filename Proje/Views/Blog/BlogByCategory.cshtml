@@ -3,14 +3,13 @@
     ViewBag.Title = "BlogByCategory";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-@{string color = "";}
+@{ string color = "post-category text-white bg-dark mb-3";}
 
 <h2>BlogByCategory</h2>
 <div class="py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <span>Kategori</span>
                 <h1>
                     @ViewBag.cName
                 </h1>
@@ -39,7 +38,7 @@
                 {
                     color = "post-category text-white bg-danger mb-3";
                 }
-                if (item.Category.CategoryName == "Eğitim")
+                if (item.Category.CategoryName == "Eğitim ve Kariyer")
                 {
                     color = "post-category text-white bg-warning mb-3";
                 }
@@ -47,10 +46,23 @@
                 {
                     color = "post-category text-white bg-info mb-3";
                 }
-                if (item.Category.CategoryName == "Borsa")
+                if (item.Category.CategoryName == "Müzik ve Sanat")
+                {
+                    color = "post-category text-black bg-warning mb-3";
+                }
+                if (item.Category.CategoryName == "Finans")
                 {
                     color = "post-category text-white bg-dark mb-3";
                 }
+                if (item.Category.CategoryName == "Evcil Hayvanlar")
+                {
+                    color = "post-category text-warning bg-secondary mb-3";
+                }
+                if (item.Category.CategoryName == "Alternatif Hayat")
+                {
+                    color = "post-category text-black bg-success  mb-3";
+                }
+
                 <div class="col-lg-4 mb-4">
                     <div class="entry2">
                         <a href="/Blog/BlogDetails/@item.BlogID"><img src="@item.BlogImage" alt="Image" class="img-fluid rounded" style="height:220px"></a>

@@ -1,21 +1,31 @@
 ﻿@model IEnumerable<EntityLayer.Concrete.Blog>
 @foreach (var x in Model)
 {
-    <div class="post-content-body">
+    <div>
         <p>
-            @x.BlogContent
-        </p>
-        <div class="row mb-5 mt-5">
-            <div class="col-md-12 mb-4">
-                <img src="@x.BlogImage2" alt="Image placeholder" class="img-fluid rounded">
-            </div>
-            <div class="col-md-6 mb-4">
-                <img src="@x.BlogImage3" alt="Image placeholder" class="img-fluid rounded">
-            </div>
-            <div class="col-md-6 mb-4">
-                <img src="@x.BlogImage4" alt="Image placeholder" class="img-fluid rounded">
-            </div>
+            @if (@x.BlogContent.Length > 3000 & x.BlogContent.Length < 30000)
+            {
+                @x.BlogContent.Substring(0, 3000);
+            <p>
+                @x.BlogContent.Substring(3000)
+            </p>
+        }
+        else
+        {
+            @x.BlogContent;
+        }
+            <p>
+                <div class="row mb-5 mt-5">
+                    <div class="col-md-12 mb-4">
+                        <img src="@x.BlogImage2" alt="Image placeholder" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="@x.BlogImage3" alt="Image placeholder" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="@x.BlogImage4" alt="Image placeholder" class="img-fluid rounded">
+                    </div>
+                </div>
         </div>
-    </div>
-}
+    }
 

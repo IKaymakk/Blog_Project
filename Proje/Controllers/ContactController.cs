@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,39 +14,44 @@ namespace Proje.Controllers
     {
         ContactManager cm = new ContactManager();
         // GET: Contact
-        
+
         [AllowAnonymous]
         public ActionResult Index()
         {
 
             return View();
         }
-        [HttpGet]
-        
+
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult SendMessage()
         {
             return View();
         }
 
-        [HttpPost]
-        
+
         [AllowAnonymous]
+        [HttpPost]
         public ActionResult SendMessage(Contact p)
         {
             cm.BLContactAdd(p);
             return View();
         }
-        public ActionResult SendBox()
+        public ActionResult SendBox(int page = 1)
         {
-            var messagelist = cm.GetAll();
+            var messagelist = cm.GetAll().ToPagedList(page, 7);
             return View(messagelist);
         }
-        
+
         public ActionResult MessageDetails(int id)
         {
             Contact ct = cm.GetContactDetails(id);
             return View(ct);
+        }
+        public ActionResult DeleteMessage(int id)
+        {
+            cm.DeleteMessage(id);
+            return RedirectToAction("SendBox");
         }
     }
 }

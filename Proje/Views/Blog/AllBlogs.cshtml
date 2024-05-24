@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 @model IEnumerable<EntityLayer.Concrete.Blog>
-@{ string color = "";}
+@{ string color = "post-category text-white bg-dark mb-3";}
 <div class="site-section">
     <div class="container">
         <div class="row mb-5">
@@ -32,7 +32,7 @@
                 {
                     color = "post-category text-white bg-danger mb-3";
                 }
-                if (x.Category.CategoryName == "Eğitim")
+                if (x.Category.CategoryName == "Eğitim ve Kariyer")
                 {
                     color = "post-category text-white bg-warning mb-3";
                 }
@@ -40,11 +40,28 @@
                 {
                     color = "post-category text-white bg-info mb-3";
                 }
+                if (x.Category.CategoryName == "Müzik ve Sanat")
+                {
+                    color = "post-category text-black bg-warning mb-3";
+                }
+                if (x.Category.CategoryName == "Finans")
+                {
+                    color = "post-category text-white bg-dark mb-3";
+                }
+                if (x.Category.CategoryName == "Evcil Hayvanlar")
+                {
+                    color = "post-category text-warning bg-secondary mb-3";
+                }
+                if (x.Category.CategoryName == "Alternatif Hayat")
+                {
+                    color = "post-category text-black bg-success  mb-3";
+                }
+
                 <div class="col-lg-4 mb-4">
                     <div class="entry2">
-                        <a href="/Blog/BlogDetails/@x.BlogID"><img style="height:220px" src="@x.BlogImage" alt="Image" class="img-fluid rounded"></a>
+                        <a href="/Blog/BlogDetails/@x.BlogID"><img style="height:220px " src="@x.BlogImage" alt="Image" class="img-fluid rounded"></a>
                         <div class="excerpt">
-                            <span class="@color">@x.Category.CategoryName</span>
+                            <a href="/Blog/BlogByCategory/@x.CategoryID" class="@color">@x.Category.CategoryName</a>
 
                             <h2><a href="/Blog/BlogDetails/@x.BlogID">@x.BlogTitle</a></h2>
                             <div class="post-meta align-items-center text-left clearfix">
@@ -71,17 +88,17 @@
             }
         </div>
         @*<div class="row text-center pt-5 border-top">
-            <div class="col-md-12">
-                <div class="custom-pagination">
-                    <span>1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span>...</span>
-                    <a href="#">15</a>
+                <div class="col-md-12">
+                    <div class="custom-pagination">
+                        <span>1</span>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <span>...</span>
+                        <a href="#">15</a>
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
     </div>
 </div>
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("AllBlogs", new { page }));

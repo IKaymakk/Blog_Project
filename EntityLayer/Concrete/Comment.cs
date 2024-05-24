@@ -18,6 +18,7 @@ namespace EntityLayer.Concrete
         [StringLength(300)]
         public string Message { get; set; }
         public int BlogID { get; set; }
+        public int BlogRating { get; set; }
         public DateTime CommentDate { get; set; }
         public bool CommentStatus { get; set; }
         public virtual Blog Blogs { get; set; }

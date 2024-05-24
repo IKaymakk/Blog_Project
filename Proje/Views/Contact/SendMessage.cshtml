@@ -24,8 +24,8 @@
 
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="text-black"for="fname">Adınız</label>
-                            <input type="text" id="fname"  name="ContactName" class="form-control">
+                            <label class="text-black" for="fname">Adınız</label>
+                            <input type="text" id="fname" name="ContactName" class="form-control">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="lname">Soyadınız</label>
@@ -52,10 +52,14 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="message">Mesajınız</label>
-                            <textarea name="ContactMessage" id="message" cols="30" rows="7" class="form-control" placeholder="..."></textarea>
+                            <textarea name="ContactMessage" id="message" cols="30" rows="7" class="form-control" placeholder="Tarih Yanlış Girilirse Mesaj Gönderilmez..."></textarea>
                         </div>
                     </div>
-
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="date" id="date" name="MessageDate" class="form-control" placeholder="15-08-2020 Şeklinde Giriniz">
+                        </div>
+                    </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <input type="submit" value="Gönder" class="btn btn-primary py-2 px-4 text-white">

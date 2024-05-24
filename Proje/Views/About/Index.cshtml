@@ -5,6 +5,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+
 @foreach (var resim in Model)
 {
     <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@resim.AboutImage1');">
@@ -21,13 +22,13 @@
         </div>
     </div>
 }
-<div class="site-section bg-light">
+<div class="site-section">
     <div class="container">
         <div class="row">
             <div class="col-md-6 order-md-2">
                 @foreach (var rsm in Model)
                 {
-                <img src="@rsm.AboutImage2" style="width:630px;margin-top:40px" alt="Image" class="">
+                    <img src="@rsm.AboutImage2" style="width:630px;height:350px;margin-top:40px" alt="Image" class="">
                 }
             </div>
             <div class="col-md-5 mr-auto order-md-1">
@@ -35,9 +36,10 @@
                 {
                     <h2>Neden Biz?</h2>
 
-                <p>@x.AboutContent1</p>
+                    <p>@x.AboutContent1</p>
                 }
                 <ul class="ul-check list-unstyled success">
+                    <br />
                     <li>Güncel ve ilgi çekici konuları takip edenler için bir kaynak olmayı amaçlarız.</li>
                     <li>Farklı alanlardan uzman yazarların görüş ve deneyimlerini paylaştığı bir platformuz.</li>
                     <li>Okuyucuların da yorum ve katkılarını bekleyen bir topluluğuz.</li>
@@ -46,6 +48,7 @@
         </div>
     </div>
 </div>
+@Html.Action("AboutSmallDetails","About")
 @Html.Action("MeetTheTeam", "About")
 
 

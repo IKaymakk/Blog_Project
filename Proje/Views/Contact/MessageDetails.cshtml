@@ -54,7 +54,7 @@
 
                         <div class="card-header">
 
-                            <h3 class="card-title">Klasörler</h3>
+                            <h3 class="card-title">İletişim Panosu</h3>
 
                             <div class="card-tools">
 
@@ -146,7 +146,7 @@
 
                         <div class="card-header">
 
-                            <h3 class="card-title">Hazır Mesajlar</h3>
+                            <h3 class="card-title">Hızlı Erişim</h3>
 
                             <div class="card-tools">
 
@@ -160,27 +160,34 @@
 
                         </div>
 
-                        <!-- /.card-header -->
-
                         <div class="card-body p-0">
 
                             <ul class="nav nav-pills flex-column">
 
                                 <li class="nav-item">
 
-                                    <a class="nav-link" href="#"><i class="far fa-circle text-danger"></i> Sosyal Medya Mesajları</a>
+                                    <a href="https://www.instagram.com/ibrahimkkaymak" class="nav-link">
+
+
+                                        <i class="far fa-circle text-danger"></i>
+
+                                        Sosyal Medya
+
+                                    </a>
 
                                 </li>
 
-                                <li class="nav-item">
-
-                                    <a class="nav-link" href="#"><i class="far fa-circle text-warning"></i> Tanıtımlar</a>
-
-                                </li>
 
                                 <li class="nav-item">
 
-                                    <a class="nav-link" href="#"><i class="far fa-circle text-primary"></i> Mail Bülteni</a>
+                                    <a href="/Contact/SendMessage" class="nav-link">
+
+
+                                        <i class="far fa-circle text-primary"></i>
+
+                                        Mail Bülteni
+
+                                    </a>
 
                                 </li>
 
@@ -210,9 +217,8 @@
 
                             <div class="card-tools">
 
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
 
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                                <a href="/Contact/DeleteMessage/@Model.ContactID" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-trash"></i></a>
 
                             </div>
 
@@ -277,21 +283,7 @@
 
                     <!-- /.card-body -->
 
-                    <div class="card-footer">
-
-                        <div class="float-right">
-
-                            <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Yanıtla</button>
-
-                            <button type="button" class="btn btn-default"><i class="fas fa-share"></i> İlet</button>
-
-                        </div>
-
-                        <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Sil</button>
-
-                        <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Yazdır</button>
-
-                    </div>
+                 
 
                     <!-- /.card-footer -->
 

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Contact>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Contact>
 @{
 
     ViewBag.Title = "SendBox";
@@ -19,13 +21,13 @@
 
 
 
-    <section class="content-header">
+    <section  class="content-header">
 
-        <div class="container-fluid">
+        <div  class="container-fluid">
 
-            <div class="row mb-2">
+            <div  class="row mb-2">
 
-                <div class="col-sm-6">
+                <div  class="col-sm-6">
 
 
                 </div>
@@ -40,19 +42,19 @@
 
     <!-- Main content -->
 
-    <section style="width:95%" class="content">
+    <section  style="width:95%" class="content">
 
-        <div class="row">
+        <div  class="row">
 
-            <div class="col-md-3">
+            <div  class="col-md-3">
 
-                <a href="compose.html" class="btn btn-primary btn-block mb-3">Yeni Mesaj</a>
+
 
                 <div class="card">
 
                     <div class="card-header">
 
-                        <h3 class="card-title">Klasörler</h3>
+                        <h3 class="card-title">İletişim Panosu</h3>
 
                         <div class="card-tools">
 
@@ -66,7 +68,7 @@
 
                     </div>
 
-                    <div class="card-body p-0">
+                    <div  class="card-body p-0">
 
                         <ul class="nav nav-pills flex-column">
 
@@ -143,7 +145,7 @@
 
                     <div class="card-header">
 
-                        <h3 class="card-title">Hazır Mesajlar</h3>
+                        <h3 class="card-title">Hızlı Erişim</h3>
 
                         <div class="card-tools">
 
@@ -163,29 +165,22 @@
 
                             <li class="nav-item">
 
-                                <a href="#" class="nav-link">
+                                <a href="https://www.instagram.com/ibrahimkkaymak" class="nav-link">
+
 
                                     <i class="far fa-circle text-danger"></i>
 
-                                    Sosyal Medya Mesajları
+                                    Sosyal Medya
 
                                 </a>
 
                             </li>
+                        
 
                             <li class="nav-item">
 
-                                <a href="#" class="nav-link">
+                                <a href="/Contact/SendMessage" class="nav-link">
 
-                                    <i class="far fa-circle text-warning"></i> Tanıtımlar
-
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item">
-
-                                <a href="#" class="nav-link">
 
                                     <i class="far fa-circle text-primary"></i>
 
@@ -209,9 +204,9 @@
 
             <!-- /.col -->
 
-            <div class="col-md-9">
+            <div  class="col-md-9">
 
-                <div class="card card-primary card-outline">
+                <div  class="card card-primary card-outline">
 
                     <div class="card-header">
 
@@ -219,21 +214,21 @@
 
                         <div class="card-tools">
 
-                            <div class="input-group input-group-sm">
+                            @*<div class="input-group input-group-sm">
 
-                                <input type="text" class="form-control" placeholder="Mail ara">
+                                    <input type="text" class="form-control" placeholder="Mail ara">
 
-                                <div class="input-group-append">
+                                    <div class="input-group-append">
 
-                                    <div class="btn btn-primary">
+                                        <div class="btn btn-primary">
 
-                                        <i class="fas fa-search"></i>
+                                            <i class="fas fa-search"></i>
+
+                                        </div>
 
                                     </div>
 
-                                </div>
-
-                            </div>
+                                </div>*@
 
                         </div>
 
@@ -245,180 +240,152 @@
 
                     <div class="card-body p-0">
 
-                        <div class="mailbox-controls">
+                        <!--<div class="mailbox-controls">-->
+                        <!-- Check all button -->
+                        <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
 
-                            <!-- Check all button -->
+                            <i class="far fa-square"></i>
 
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                        </button>
 
-                                <i class="far fa-square"></i>
+                        <div class="btn-group">
 
-                            </button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+
+                        </div>-->
+                        <!-- /.btn-group -->
+                        <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+
+                        <div class="float-right">
+
+                            1-50/200
 
                             <div class="btn-group">
 
-                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
 
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
 
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                            </div>-->
+                        <!-- /.btn-group -->
+                        <!--</div>-->
+                        <!-- /.float-right -->
 
-                            </div>
+                    </div>
 
-                            <!-- /.btn-group -->
+                    <div class="table-responsive mailbox-messages">
 
-                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                        <table class="table table-hover table-striped">
 
-                            <div class="float-right">
+                            <tbody>
+                                @foreach (var x in Model)
+                                {
+                                    <tr >
 
-                                1-50/200
+                                    
 
-                                <div class="btn-group">
+                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                                        <td class="mailbox-name"><a href="/Contact/MessageDetails/@x.ContactID">@x.ContactName  @x.ContactSurname</a></td>
 
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                                        <td class="mailbox-subject">
 
-                                </div>
-
-                                <!-- /.btn-group -->
-
-                            </div>
-
-                            <!-- /.float-right -->
-
-                        </div>
-
-                        <div class="table-responsive mailbox-messages">
-
-                            <table class="table table-hover table-striped">
-
-                                <tbody>
-                                    @foreach (var x in Model)
-                                    {
-                                        <tr>
-
-                                            <td>
-
-                                                <div class="icheck-primary">
-
-                                                    <input type="checkbox" value="" id="check1">
-
-                                                    <label for="check1"></label>
-
-                                                </div>
-
-                                            </td>
-
-                                            <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-
-                                            <td class="mailbox-name"><a href="/Contact/MessageDetails/@x.ContactID">@x.ContactName  @x.ContactSurname</a></td>
-
-                                            <td class="mailbox-subject">
-
-                                                <b>
-                                                    @if (x.ContactSubject.Length > 15)
-                                                    {
-                                                        <a>@x.ContactSubject.Substring(0, 15)...</a>
-                                                    }
-                                                    else
-                                                    {
-                                                        @x.ContactSubject
-                                                    }
-                                                </b>
-
-
-
-
-                                                -@if (x.ContactMessage.Length > 50)
+                                            <b>
+                                                @if (x.ContactSubject.Length > 15)
                                                 {
-                                                    <a>@x.ContactMessage.Substring(0, 50)...</a>
+                                                    <a>@x.ContactSubject.Substring(0, 15)...</a>
                                                 }
                                                 else
                                                 {
-                                                    @x.ContactMessage
+                                                    @x.ContactSubject
                                                 }
+                                            </b>
 
-                                            </td>
 
-                                            <td class="mailbox-attachment"></td>
 
-                                            <td class="mailbox-date">@(((DateTime)x.MessageDate).ToString("dd-MMM-yyyy")) </td>
 
-                                        </tr>
-                                    }
-                                </tbody>
+                                            -@if (x.ContactMessage.Length > 50)
+                                            {
+                                                <a >@x.ContactMessage.Substring(0, 50)...</a>
+                                            }
+                                            else
+                                            {
+                                                @x.ContactMessage
+                                            }
 
-                            </table>
+                                        </td>
 
-                            <!-- /.table -->
+                                        <td class="mailbox-attachment"></td>
 
-                        </div>
+                                        <td class="mailbox-date">@(((DateTime)x.MessageDate).ToString("dd-MMM-yyyy")) </td>
 
-                        <!-- /.mail-box-messages -->
+                                    </tr>
+                                }
+                            </tbody>
 
-                    </div>
+                        </table>
 
-                    <!-- /.card-body -->
-
-                    <div class="card-footer p-0">
-
-                        <div class="mailbox-controls">
-
-                            <!-- Check all button -->
-
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
-
-                                <i class="far fa-square"></i>
-
-                            </button>
-
-                            <div class="btn-group">
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-
-                            </div>
-
-                            <!-- /.btn-group -->
-
-                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-
-                            <div class="float-right">
-
-                                1-50/200
-
-                                <div class="btn-group">
-
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
-
-                                </div>
-
-                                <!-- /.btn-group -->
-
-                            </div>
-
-                            <!-- /.float-right -->
-
-                        </div>
+                        <!-- /.table -->
 
                     </div>
+
+                    <!-- /.mail-box-messages -->
 
                 </div>
 
-                <!-- /.card -->
+                <!-- /.card-body -->
+                <!--<div class="card-footer p-0">
+
+                <div class="mailbox-controls">-->
+                <!-- Check all button -->
+                <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
+
+                    <i class="far fa-square"></i>
+
+                </button>
+
+                <div class="btn-group">
+
+                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+
+                </div>-->
+                <!-- /.btn-group -->
+                <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+
+                <div class="float-right">
+
+                    1-50/200
+
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+
+                    </div>-->
+                <!-- /.btn-group -->
+                <!--</div>-->
+                <!-- /.float-right -->
+                <!--</div>
+
+                </div>-->
 
             </div>
 
-            <!-- /.col -->
+            <!-- /.card -->
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("SendBox", new { page }))
 
         </div>
 
+        <!-- /.col -->
         <!-- /.row -->
 
     </section>

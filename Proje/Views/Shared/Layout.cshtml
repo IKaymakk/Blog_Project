@@ -3,10 +3,10 @@
     Layout = null;
 }
 <style>
-    body{
-    overflow-x: hidden;
-}
-    </style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +21,19 @@
     <link rel="stylesheet" href="~/miniblog/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/miniblog/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/miniblog/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800%7CPoppins:300,400,700">
     <link rel="stylesheet" href="~/miniblog/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="~/miniblog/css/aos.css">
     <link rel="stylesheet" href="~/miniblog/css/style.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .xxx {
+        }
+
+            .xxx:hover {
+                color: red;
+                cursor: none;
+            }
+    </style>
 </head>
 <body>
 
@@ -50,7 +59,11 @@
                     </div>
 
                     <div class="col-4 site-logo">
-                        <a href="/Blog/Index" class="text-black h2 mb-0">Ana Sayfa</a>
+                        @*<a href="/Blog/Index" class="text-black h2 mb-0">Ana Sayfa</a>*@
+                        <a style="font-family: 'Gill Sans MT';margin-left:20px;font-size:20px;color:black"  href="/Blog/Index">
+                                ANASAYFA
+                        </a>
+
                     </div>
 
                     <div class="col-8 text-right">
@@ -58,13 +71,13 @@
                             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                                 <li><a href="/Blog/BlogByCategory/1/">Yazılım - Teknoloji</a></li>
                                 <li><a href="/Blog/BlogByCategory/4">Politika</a></li>
-                                <li><a href="/Blog/BlogByCategory/5">Eğitim</a></li>
+                                <li><a href="/Blog/BlogByCategory/5">Eğitim ve Kariyer</a></li>
                                 <li><a href="/Blog/BlogByCategory/3">Seyahat</a></li>
-                                <li><a href="/Blog/BlogByCategory/6">Borsa</a></li>
+                                <li><a href="/Blog/BlogByCategory/6">Finans</a></li>
                                 <li><a href="/Blog/BlogByCategory/2">Spor</a></li>
-                                <li><a href="/Contact/SendMessage/">İletişim</a></li>
                                 <li><a href="/About/Index/">Hakkımızda</a></li>
-                                <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
+                                <li><a href="/Contact/SendMessage/">İletişim</a></li>
+                                @*<li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>*@
                             </ul>
                         </nav>
                         <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a>
@@ -87,35 +100,30 @@
                         </a>
                         <p>Amacımız, okuyucularımıza ve izleyicilerimize, güncel ve doğru bilgi sunarak onların haberdar olmasını sağlamak. Yenilikçi ve yaratıcı yaklaşımımızla, sadece güncel haberleri değil, aynı zamanda ilgi çekici vloglar ve özel röportajlar da sunuyoruz.</p>
                     </div>
+
                     <div style="margin-left:50px" class="col-md-3 ml-auto">
-                        <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
-                        <h3 class="footer-heading mb-4">Kategoriler</h3>
-                        <ul class="list-unstyled float-left">
-                            <li><a href="/Blog/BlogByCategory/1">Yazılım - Teknoloji</a></li>
-                            <li><a href="/Blog/BlogByCategory/4">Politika</a></li>
-                            <li><a href="/Blog/BlogByCategory/5">Eğitim</a></li>
-                            <li><a href="/Blog/BlogByCategory/3">Seyahat</a></li>
-                            <li><a href="/Blog/BlogByCategory/2">Spor</a></li>
-                            <li><a href="/Blog/BlogByCategory/6">Sanat</a></li>
-                        </ul>
-
-
+                        <h3 class="footer-heading mb-4">Sosyal Medya</h3>
+                        <p>
+                            <a href="https://open.spotify.com/user/kaymak717"><span class="icon-spotify pt-2 pr-2 pb-2 pl-0"></span></a>
+                            <a href="https://github.com/IKaymakk"><span class="icon-github p-3"></span></a>
+                            <a href="https://www.instagram.com/ibrahimkkaymak/"><span class="icon-instagram p-2"></span></a>
+                            <ul class="list-unstyled">
+                            </ul>
+                        </p>
                     </div>
 
                     <div class="col-md-4">
-                        <div style="margin-top:-285px;margin-left:80px">
-                            <h3 class="footer-heading mb-4">Sosyal Medya</h3>
-                            <p>
-                                <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
-                                <a href="#"><span class="icon-twitter p-2"></span></a>
-                                <a href="#"><span class="icon-instagram p-2"></span></a>
-                                <ul class="list-unstyled float-left mr-5">
-                                    <li><a href="/Contact/SendMessage/">İletişim</a></li>
-                                    <li><a href="/Login/AdminLogin">Admin Girişi</a></li>
-                                    <li><a href="/Login/AuthorLogin">Yazar Girişi</a></li>
+                        <div style="margin-top:-185px;margin-left:80px">
+                            <ul class="list-unstyled float-left mr-5">
+                                <li><a href="/Login/AdminLogin">Admin Girişi</a></li>
+                                <li><a href="/Login/AuthorLogin">Yazar Girişi</a></li>
+                                <li>
+                                    <a href="/Contact/SendMessage/">İletişim</a>
 
-                                </ul>
-                            </p>
+                                </li>
+                                <li><a class="xxx" href="#">By İbrahim Kaymak</a></li>
+                            </ul>
+
                         </div>
                     </div>
                 </div>
