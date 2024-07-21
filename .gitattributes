@@ -66,12 +66,12 @@
 *.java linguist-detectable=false
 *.js linguist-detectable=false
 *.html linguist-detectable=false
+*.html linguist-language=Ignore
 *.xml linguist-detectable=false
 *.css linguist-detectable=false
 *.scss linguist-detectable=false
 *.php linguist-detectable=false
 *.ahtml linguist-detectable=false
-
 
 
 
