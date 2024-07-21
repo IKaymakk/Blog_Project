@@ -70,6 +70,7 @@
 *.css linguist-detectable=false
 *.scss linguist-detectable=false
 *.php linguist-detectable=false
+*.ahtml linguist-detectable=false
 
 
 
